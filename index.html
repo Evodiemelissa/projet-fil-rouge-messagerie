@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <title> messagerie</title>
-    </head>
-    <body>
-        <header>
-        <h1>Ma messagerie</h1>
-        </header>
-        <main>
- <p>
-            Bienvenue dans ma messagerie texte !
-            </p>
-            <section>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mamessagerie - Connexion</title>
+</head>
+<body>
 
+  <header>
+    <h1> Bienvenue dans ma messagerie</h1>
+    <p>Discutez simplement avec vos proches.</p>
+  </header>
 
-                <h2>Se connecter</h2>
-                <form action="conversation.html">
-                    <p>
-                    <label for="courriel">Adresse courriel</label>
-                    <input type="email" id="courriel" name="courriel">
-                    </p>
-                    <p>  
-                    <label for="motdepasse">Mot de passe</label>
-                    <input type="password" id="motdepasse" name="motdepasse">
-                    </p>
-                    <p>
-                    <input type="checkbox" id="souvenir" name="souvenir">
-                    <label for="souvenir">Sesouvenir de moi</label>
-                    </p>
-                    <p>
-                        <button type="submit">Se connecter</button>
-                        <button type="button">S'inscrire</button>
-                    </p>
-                
-                </form>
-                <p><a href="#">Mot de passe oublié ?</a></p>
-            </section>
-        
-        
-        </main>
-       
-    </body>
-                    </html>
+  <main>
+    <form action="conversation.html" method="get">
+      <h2>Connexion</h2>
+
+      <label for="courriel">Adresse courriel</label>
+      <input type="email" id="courriel" name="courriel"
+             placeholder="exemple@courriel.com" required>
+
+      <label for="mdp">Mot de passe</label>
+      <input type="password" id="mdp" name="mdp" required>
+
+      <label>
+        <input type="checkbox" name="souvenir">
+        Se souvenir de moi
+      </label>
+
+      <button type="submit">Se connecter</button>
+      <a href="inscription.html">S'inscrire</a>
+      <a href="mot-de-passe-oublie.html">Mot de passe oublie ?</a>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Ma messagerie.Tous droits reserves - Projet fil-rouge</p>
+    <a href="#contact">Contact</a>
+  </footer>
+
+</body>
+</html>
