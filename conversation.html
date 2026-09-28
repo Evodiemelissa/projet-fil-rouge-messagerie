@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <title>Mes conversations</title>
-    </head>
-    <body>
-        <header
-        <h1>Mes conversations</h1>
-        <nav></nav>
-        </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MonChat - Conversation</title>
+</head>
+<body>
+
+  <header>
+    <h1>Salon general</h1>
+    <a href="index.html">Se deconnecter</a>
+  </header>
+
+  <main>
+    <section id="messages">
+
+      <div class="message recu">
+        <strong>Sarah</strong>
+        <p>Salut, ca va ?</p>
+        <small>14:02</small>
+      </div>
+      <div class="message envoye">
+        <strong>Moi</strong>
+        <p>Oui et toi ? Tu as commence le projet ?</p>
+        <small>14:03</small>
+      </div>
+
+      <div class="message recu">
+        <strong>Sarah</strong>
+        <p>Oui, j'ai fait la page d'accueil.</p>
+        <small>14:04</small>
+      </div>
+
+    </section>
+  </main>
+  <footer>
+    <form id="formulaire-envoi">
+      <label for="texte">Votre message</label>
+      <input type="text" id="texte" name="texte" placeholder="Ecrivez ici..." required>
+      <button type="submit">Envoyer</button>
+    </form>
+  </footer>
+
+</body>
 </html>
