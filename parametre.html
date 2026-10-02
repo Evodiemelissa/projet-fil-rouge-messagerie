@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MonChat - Parametres</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>MonChat</h1>
+    <a href="conversation.html">Retour a la conversation</a>
+  </header>
+
+  <main>
+    <h2>Parametres du compte</h2>
+
+    <form action="conversation.html" method="get">
+
+      <label for="nom">Nom affiche</label>
+      <input type="text" id="nom" name="nom">
+
+      <label for="courriel">Adresse courriel</label>
+      <input type="email" id="courriel" name="courriel">
+
+      <label for="langue">Langue preferee</label>
+      <select id="langue" name="langue">
+        <option value="fr">Francais</option>
+        <option value="en">Anglais</option>
+        <option value="es">Espagnol</option>
+      </select>
+
+      <label>
+        <input type="checkbox" name="notifications" checked>
+        Recevoir les notifications
+      </label>
+
+      <button type="submit">Enregistrer</button>
+      <a href="index.html">Se deconnecter</a>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 MonChat - Projet fil-rouge</p>
+  </footer>
+
+</body>
+</html>
