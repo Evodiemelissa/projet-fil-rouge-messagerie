@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MonChat - Contact</title>
+</head>
+<body>
+
+  <header>
+    <h1>MonChat</h1>
+    <a href="conversation.html">Retour a la conversation</a>
+    <link rel="stylesheet" href="style.css">
+  </header>
+
+  <main>
+    <h2>Nous contacter</h2>
+    <p>Une question ou un probleme ? Ecrivez-nous.</p>
+
+    <form action="index.html" method="get">
+      <label for="nom">Nom</label>
+      <input type="text" id="nom" name="nom" required>
+
+      <label for="courriel">Adresse courriel</label>
+      <input type="email" id="courriel" name="courriel" required>
+
+      <label for="sujet">Sujet</label>
+      <input type="text" id="sujet" name="sujet" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Envoyer</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 MonChat - Projet fil-rouge</p>
+  </footer>
+
+</body>
+</html>
