@@ -1,43 +1,63 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mamessagerie - Connexion</title>
+  <title>MonChat - Connexion</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <header>
-    <h1> Bienvenue dans ma messagerie</h1>
-    <p>Discutez simplement avec vos proches.</p>
+    <h1>Bienvenue dans MonChat</h1>
+    <p>Discutez simplement avec vos proches dans la langue de votre choix. 
+    </p>
   </header>
 
   <main>
-    <form action="conversation.html" method="get">
+    <form action="conversation.html" method="post">
       <h2>Connexion</h2>
 
-      <label for="courriel">Adresse courriel</label>
-      <input type="email" id="courriel" name="courriel"
-             placeholder="exemple@courriel.com" required>
+      <p>Veuillez entrer vos identifiants pour vous connecter à votre compte.
+      </p>
 
-      <label for="mdp">Mot de passe</label>
-      <input type="password" id="mdp" name="mdp" required>
+      <p>
+        <label for="courriel">Adresse courriel</label>
+        <input type="email" id="courriel" name="courriel" placeholder="exemple@courriel.com" required>
+      </p>
 
-      <label>
-        <input type="checkbox" name="souvenir">
-        Se souvenir de moi
-      </label>
+      <p>
+        <label for="mdp">Mot de passe</label>
+        <input type="password" id="mdp" name="mdp" required>
+      </p>
 
-      <button type="submit">Se connecter</button>
-      <a href="inscription.html">S'inscrire</a>
-      <a href="mot-de-passe-oublie.html">Mot de passe oublie ?</a>
+      <p>
+        <label>
+          <input type="checkbox" name="souvenir">
+          Se souvenir de moi
+        </label>
+      </p>
+
+      <P>
+         <button type="submit">Se connecter</button>
+      </p>
     </form>
+
+      <nav>
+        <p><a href="mot-de-passe-oublie.html">Mot de passe oublié ?</a></p>
+        <p>Pas encore de compte ? <a href="inscription.html">S'inscrire</a></p>
+      </nav>
+
   </main>
 
   <footer>
-    <p>&copy; 2026 Ma messagerie.Tous droits reserves - Projet fil-rouge</p>
-    <a href="#contact">Contact</a>
+    <p>Messages traduits automatiquement avec LibreTranslate, un logiciel libre.</p>
+    <p>&copy; 2026 MonChat - Projet fil-rouge</p>
+    <a href="contact.html">Contact</a>
   </footer>
 
 </body>
+
 </html>
