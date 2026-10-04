@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MonChat - Mot de passe oublie</title>
+  <title>MonChat - Mot de passe oublié</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <header>
@@ -13,17 +15,29 @@
   </header>
 
   <main>
-    <form action="index.html" method="get">
-      <h2>Mot de passe oublie</h2>
-      <p>Entrez votre adresse courriel pour recevoir un lien de reinitialisation.</p>
+    <form action="index.html" method="post">
+      <h2>Mot de passe oublié</h2>
+      <p>Entrez votre adresse courriel pour recevoir un lien de réinitialisation.</p>
 
-      <label for="courriel">Adresse courriel</label>
-      <input type="email" id="courriel" name="courriel" required>
+      <p>
+        <label for="courriel">Adresse courriel</label>
+        <input type="email" id="courriel" name="courriel" required>
+      </p>
 
-      <button type="submit">Envoyer le lien</button>
-      <a href="index.html">Retour a la connexion</a>
+      <p>
+        <button type="submit">Envoyer le lien</button>
+      </p>
     </form>
-  </main>
 
+    <nav>
+      <a href="index.html">Retour à la connexion</a>
+    </nav>
+  </main>
+  <footer>
+    <p>Messages traduits automatiquement avec LibreTranslate, un logiciel libre.</p>
+    <p>&copy; 2026 MonChat - Projet fil-rouge</p>
+    <a href="contact.html">Contact</a>
+  </footer>
 </body>
+
 </html>
