@@ -1,49 +1,105 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MonChat - Parametres</title>
+  <title>MonChat - Paramètres</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <header>
     <h1>MonChat</h1>
-    <a href="conversation.html">Retour a la conversation</a>
+    <nav>
+      <a href="contact.html">Contact</a>
+      <a href="index.html">Se déconnecter</a>
+      <a href="conversation.html">Retour à la conversation</a>
+    </nav>
   </header>
 
   <main>
-    <h2>Parametres du compte</h2>
+    <h2>Paramètres du compte</h2>
 
-    <form action="conversation.html" method="get">
+    <form action="conversation.html" method="post" enctype="multipart/form-data">
 
-      <label for="nom">Nom affiche</label>
-      <input type="text" id="nom" name="nom">
 
-      <label for="courriel">Adresse courriel</label>
-      <input type="email" id="courriel" name="courriel">
+      <legend>Profil</legend>
 
-      <label for="langue">Langue preferee</label>
-      <select id="langue" name="langue">
-        <option value="fr">Francais</option>
-        <option value="en">Anglais</option>
-        <option value="es">Espagnol</option>
-      </select>
+      <p>
+        <label for="photo">Photo de profil</label>
+        <input type="file" id="photo" name="photo" accept="image/*">
+      </p>
 
-      <label>
-        <input type="checkbox" name="notifications" checked>
-        Recevoir les notifications
-      </label>
+      <p>
+        <label for="nom">Nom affiché</label>
+        <input type="text" id="nom" name="nom">
+      </p>
 
-      <button type="submit">Enregistrer</button>
-      <a href="index.html">Se deconnecter</a>
+      <p>
+        <label for="courriel">Adresse courriel</label>
+        <input type="email" id="courriel" name="courriel">
+      </p>
+      </fieldset>
+      <fieldset>
+        <legend>Traduction</legend>
+
+        <p>
+
+          <label for="langue">Langue dans laquelle je lis mes messages</label>
+          <select id="langue" name="langue">
+            <option value="fr" selected>Français</option>
+            <option value="en">Anglais</option>
+            <option value="es">Espagnol</option>
+            <option value="de">Allemand</option>
+            <option value="it">Italien</option>
+
+          </select>
+        </p>
+
+        <p>
+          <label>
+            <input type="checkbox" name="traduction-auto" checked>
+            Traduire automatiquement les messages reçus
+          </label>
+        </p>
+
+        <p>
+          <label>
+            <input type="checkbox" name="afficher-version-originale" checked>
+            Afficher la version originale par défaut
+          </label>
+        </p>
+      </fieldset>
+      <fieldset>
+        <legend>Notifications</legend>
+
+        <p>
+          <label>
+            <input type="checkbox" name="notifications" checked>
+            Recevoir des notifications pour les nouveaux messages
+          </label>
+        </p>
+      </fieldset>
+
+      <p>
+        <button type="submit">Enregistrer</button>
+      </p>
     </form>
+
+    <nav>
+      <p><a href="index.html">Se déconnecter</a></p>
+    </nav>
+
   </main>
 
   <footer>
+    <p>Messages traduits automatiquement avec LibreTranslate, un logiciel libre.</p>
     <p>&copy; 2026 MonChat - Projet fil-rouge</p>
+    <a href="contact.html">Contact</a>
   </footer>
 
 </body>
+
 </html>
