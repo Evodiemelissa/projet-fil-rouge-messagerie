@@ -1,46 +1,102 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MonChat - Conversation</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <header>
-    <h1>Salon general</h1>
-    <a href="index.html">Se deconnecter</a>
-  </header>
+  <!-- ZONE 1 : colonne de gauche -->
+  <aside id="liste-conversations">
+    <header>
+      <h1>MonChat</h1>
+    </header>
 
-  <main>
+    <section>
+      <h2>Conversations</h2>
+      <ul>
+        <li>
+          <a href="conversation.html">
+            <strong>Sarah</strong>
+            <small>Anglais</small>
+          </a>
+        </li>
+        <li><a href="#">Salon général</a></li>
+        <li><a href="#">Projet fil-rouge</a></li>
+        <li><a href="#">Amis</a></li>
+      </ul>
+    </section>
+
+    <nav>
+      <a href="parametre.html">Paramètres</a>
+      <a href="contact.html">Contact</a>
+      <a href="index.html">Se déconnecter</a>
+    </nav>
+  </aside>
+
+  <!-- ZONE 2 : conversation ouverte -->
+  <main id="conversation-ouverte">
+
+    <header>
+      <h2>Conversation avec Sarah</h2>
+      <p><small>Sarah parle anglais. Vous la lisez en français.</small></p>
+    </header>
+
     <section id="messages">
 
-      <div class="message recu">
-        <strong>Sarah</strong>
-        <p>Salut, ca va ?</p>
-        <small>14:02</small>
-      </div>
-      <div class="message envoye">
-        <strong>Moi</strong>
-        <p>Oui et toi ? Tu as commence le projet ?</p>
-        <small>14:03</small>
-      </div>
+      <article class="message recu">
+        <p><strong>Sarah</strong></p>
+        <p>Salut, ça va ?</p>
+        <p><small>Traduit de l'anglais</small></p>
+        <details>
+          <summary>Voir le message original</summary>
+          <p lang="en">Hi, how are you?</p>
+        </details>
+        <p><time datetime="14:02">14:02</time></p>
+      </article>
 
-      <div class="message recu">
-        <strong>Sarah</strong>
-        <p>Oui, j'ai fait la page d'accueil.</p>
-        <small>14:04</small>
-      </div>
+      <article class="message envoye">
+        <p><strong>Moi</strong></p>
+        <p>Oui merci et toi ?</p>
+        <p><small>Envoyé en anglais</small></p>
+        <details>
+          <summary>Voir la version envoyée</summary>
+          <p lang="en">Yes, thanks, and you?</p>
+        </details>
+        <p><time datetime="14:03">14:03</time></p>
+      </article>
 
     </section>
+
+    <footer>
+      <form id="formulaire-envoi" action="conversation.html" method="post">
+
+        <p>
+          <label for="langue-envoi">Traduire mon message en</label>
+          <select id="langue-envoi" name="langue-envoi">
+            <option value="en" selected>Anglais</option>
+            <option value="fr">Français</option>
+            <option value="es">Espagnol</option>
+            <option value="de">Allemand</option>
+            <option value="it">Italien</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="texte">Votre message</label>
+          <input type="text" id="texte" name="texte" placeholder="Écrivez ici..." required>
+          <button type="submit">Envoyer</button>
+        </p>
+
+      </form>
+    </footer>
+
   </main>
-  <footer>
-    <form id="formulaire-envoi">
-      <label for="texte">Votre message</label>
-      <input type="text" id="texte" name="texte" placeholder="Ecrivez ici..." required>
-      <button type="submit">Envoyer</button>
-    </form>
-  </footer>
 
 </body>
+
 </html>
