@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,55 +19,58 @@
       <h2>Créer un compte</h2>
 
       <fieldset>
-        <legend>Informations personnelles</legend>  
+        <legend>Informations personnelles</legend>
 
         <p>
-      <label for="nom">Nom complet</label>
-      <input type="text" id="nom" name="nom" placeholder="Ex: Marie Dupont" autocomplete="name"required>
+          <label for="nom">Nom complet</label>
+          <input type="text" id="nom" name="nom" placeholder="Ex: Marie Dupont" autocomplete="name" required>
         </p>
 
         <p>
-      <label for="courriel">Adresse courriel</label>
-      <input type="email" id="courriel" name="courriel" placeholder="exemple@courriel.com" autocomplete="email" required>
+          <label for="courriel">Adresse courriel</label>
+          <input type="email" id="courriel" name="courriel" placeholder="exemple@courriel.com" autocomplete="email"
+            required>
         </p>
 
         <p>
-      <label for="mdp">Mot de passe</label>
-      <input type="password" id="mdp" name="mdp" minlength="8" placeholder="Au moins 8 caractères" autocomplete="new-password" required>
+          <label for="mdp">Mot de passe</label>
+          <input type="password" id="mdp" name="mdp" minlength="8" placeholder="Au moins 8 caractères"
+            autocomplete="new-password" required>
         </p>
 
         <p>
-      <label for="mdp-confirm">Confirmer le mot de passe</label>
-      <input type="password" id="mdp-confirm" name="mdp-confirm" minlength="8" placeholder="Au moins 8 caractères" autocomplete="new-password" required>
+          <label for="mdp-confirm">Confirmer le mot de passe</label>
+          <input type="password" id="mdp-confirm" name="mdp-confirm" minlength="8" placeholder="Au moins 8 caractères"
+            autocomplete="new-password" required>
         </p>
       </fieldset>
 
 
       <fieldset>
-      <legend>Votre langue</legend>
+        <legend>Votre langue</legend>
+
+        <p>
+          <label for="langue">Choisissez votre langue</label>
+          <select id="langue" name="langue" required>
+            <option value="">--Sélectionnez une langue--</option>
+            <option value="fr">Français</option>
+            <option value="en">Anglais</option>
+            <option value="es">Espagnol</option>
+            <option value="de">Allemand</option>
+            <option value="it">Italien</option>
+          </select>
+        </p>
+      </fieldset>
 
       <p>
-        <label for="langue">Choisissez votre langue</label>
-        <select id="langue" name="langue" required>
-          <option value="">--Sélectionnez une langue--</option>
-          <option value="fr">Français</option>
-          <option value="en">Anglais</option>
-          <option value="es">Espagnol</option>
-          <option value="de">Allemand</option>
-          <option value="it">Italien</option>
-        </select>
-      </p>
-      </fieldset> 
-
-      <p>
-<label>
+        <label>
           <input type="checkbox" name="consentement" required>
           J'accepte les <a href="#">conditions d'utilisation</a> et la <a href="#">politique de confidentialité</a>.
         </label>
       </p>
 
       <p>
-      <button type="submit">S'inscrire</button>
+        <button type="submit">S'inscrire</button>
       </p>
     </form>
 
@@ -78,8 +82,9 @@
   <footer>
     <p>Messages traduits automatiquement avec LibreTranslate, un logiciel libre.</p>
     <p>&copy; 2026 MonChat - Projet fil-rouge</p>
-    <a href="contact.html">Contact</a>
+    <p><a href="contact.html">Contact</a></p>
   </footer>
 
 </body>
+
 </html>
