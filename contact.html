@@ -4,37 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MonChat - Contact</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
   <header>
     <h1>MonChat</h1>
+    <nav>
     <a href="conversation.html">Retour a la conversation</a>
-    <link rel="stylesheet" href="style.css">
+    </nav>
+
   </header>
 
   <main>
-    <h2>Nous contacter</h2>
-    <p>Une question ou un probleme ? Ecrivez-nous.</p>
+    <form action="conversation.html" method="post">
+      <h2>Nous contacter</h2>
+      
+    
+    <p>Une question ou un problème? Ecrivez-nous.</p>
 
-    <form action="index.html" method="get">
+<p>
       <label for="nom">Nom</label>
       <input type="text" id="nom" name="nom" required>
+      </p>
+      <p> 
 
       <label for="courriel">Adresse courriel</label>
       <input type="email" id="courriel" name="courriel" required>
-
-      <label for="sujet">Sujet</label>
-      <input type="text" id="sujet" name="sujet" required>
+      </p>
+      <p>
+        <label for="sujet">Sujet</label>
+        <select id="sujet" name="sujet" required>
+          <option value="">-- Choisissez un sujet --</option>
+          <option value="question">Une question</option>
+          <option value="traduction">Un problème de traduction</option>
+          <option value="technique">Un problème technique</option>
+          <option value="suggestion">Une suggestion</option>
+        </select>
+      </p>
+      <p>
 
       <label for="message">Message</label>
       <textarea id="message" name="message" rows="5" required></textarea>
+      </p>
+      <p>
 
       <button type="submit">Envoyer</button>
+      </p>  
     </form>
   </main>
 
   <footer>
+    <p>Messages traduits automatiquement avec LibreTranslate, un logiciel libre.</p>
     <p>&copy; 2026 MonChat - Projet fil-rouge</p>
   </footer>
 
