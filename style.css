@@ -35,3 +35,9 @@ main {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-top: 5px solid var(--bleu);
 }
+.message-erreur {
+  color: #c0392b;
+}
+
+.message-ok {
+  color: #1e8449;
