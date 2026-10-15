@@ -30,25 +30,29 @@
 
         <p>
           <label for="courriel">Adresse courriel</label>
-          <input type="email" id="courriel" name="courriel" placeholder="exemple@courriel.com" autocomplete="email"
-            required>
+          <input type="email" id="courriel" name="courriel" 
+          pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+  title="Exemple : alice@exemple.com" placeholder="exemple@courriel.com"
+  autocomplete="email" required>
         </p>
         <p id="courriel-message"></p>
 
         <p>
           <label for="mdp">Mot de passe</label>
-          <input type="password" id="mdp" name="mdp" minlength="8" placeholder="Au moins 8 caractères"
+          <input type="password" id="mdp" name="mdp" pattern=".{8,}" 
+          title="Au moins 8 caractères" placeholder="Au moins 8 caractères"
             autocomplete="new-password" required>
         </p>
         <p id="mdp-message"></p>
 
         <p>
           <label for="mdp-confirm">Confirmer le mot de passe</label>
-          <input type="password" id="mdp-confirm" name="mdp-confirm" minlength="8" placeholder="Au moins 8 caractères"
+          <input type="password" id="mdp-confirm" name="mdp-confirm" pattern=".{8,}" 
+          title="Au moins 8 caractères" placeholder="Au moins 8 caractères"
             autocomplete="new-password" required>
         </p>
         <p id="mdp-confirm-message"></p>
-        
+
       </fieldset>
 
 
