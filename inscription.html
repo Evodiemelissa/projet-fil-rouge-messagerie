@@ -26,23 +26,29 @@
           <input type="text" id="nom" name="nom" placeholder="Ex: Marie Dupont" autocomplete="name" required>
         </p>
 
+
+
         <p>
           <label for="courriel">Adresse courriel</label>
           <input type="email" id="courriel" name="courriel" placeholder="exemple@courriel.com" autocomplete="email"
             required>
         </p>
+        <p id="courriel-message"></p>
 
         <p>
           <label for="mdp">Mot de passe</label>
           <input type="password" id="mdp" name="mdp" minlength="8" placeholder="Au moins 8 caractères"
             autocomplete="new-password" required>
         </p>
+        <p id="mdp-message"></p>
 
         <p>
           <label for="mdp-confirm">Confirmer le mot de passe</label>
           <input type="password" id="mdp-confirm" name="mdp-confirm" minlength="8" placeholder="Au moins 8 caractères"
             autocomplete="new-password" required>
         </p>
+        <p id="mdp-confirm-message"></p>
+        
       </fieldset>
 
 
@@ -85,6 +91,7 @@
     <p><a href="contact.html">Contact</a></p>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 
 </html>
