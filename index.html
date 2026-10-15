@@ -23,15 +23,20 @@
       <p>Veuillez entrer vos identifiants pour vous connecter à votre compte.
       </p>
 
-      <p>
+       <p>
         <label for="courriel">Adresse courriel</label>
-        <input type="email" id="courriel" name="courriel" placeholder="exemple@courriel.com" required>
+        <input type="email" id="courriel" name="courriel"
+          pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+          title="Exemple : alice@exemple.com" placeholder="exemple@courriel.com"
+          autocomplete="email" required>
       </p>
+      <p id="courriel-message"></p>
 
       <p>
         <label for="mdp">Mot de passe</label>
-        <input type="password" id="mdp" name="mdp" required>
+        <input type="password" id="mdp" name="mdp" autocomplete="current-password" required>
       </p>
+      <p id="mdp-message"></p>
 
       <p>
         <label>
@@ -40,7 +45,7 @@
         </label>
       </p>
 
-      <P>
+      <p>
          <button type="submit">Se connecter</button>
       </p>
     </form>
@@ -57,6 +62,7 @@
     <p>&copy; 2026 MonChat - Projet fil-rouge</p>
     <a href="contact.html">Contact</a>
   </footer>
+
 
 </body>
 
