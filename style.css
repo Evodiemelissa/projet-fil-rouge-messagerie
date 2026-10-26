@@ -7,7 +7,6 @@
     --texte: #111827;
     --accent: #F59E0B;
 }
-}
 
 /*==== Style général de la page ====*/
 body {
@@ -15,6 +14,8 @@ body {
     background-color: var(--fond);
     color: var(--texte);
     margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 /*==== Style de l'en-tête ====*/
@@ -27,7 +28,6 @@ header {
 
 /*==== Carte centrale ====*/
 main {
-    max-width: 400px;
     margin: 30px auto;
     padding: 20px;
     background-color: white;
@@ -41,3 +41,10 @@ main {
 
 .message-ok {
   color: #1e8449;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 80vh; /* Ajustez la hauteur selon vos besoins */
+}
