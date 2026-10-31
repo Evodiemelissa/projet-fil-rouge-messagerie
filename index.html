@@ -5,65 +5,90 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MonChat - Connexion</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="index.css">
 </head>
 
-<body>
+<body class="page-accueil">
 
-  <header>
-    <h1>Bienvenue dans MonChat</h1>
-    <p>Discutez simplement avec vos proches dans la langue de votre choix. 
-    </p>
-  </header>
+  <div class="accueil">
 
-  <main>
-    <form action="conversation.html" method="post">
-      <h2>Connexion</h2>
+    <section class="vitrine">
+      <div class="logo">
+        <i class="fa-solid fa-comments"></i>
+        <span>MonChat</span>
+      </div>
 
-      <p>Veuillez entrer vos identifiants pour vous connecter à votre compte.
-      </p>
+      <h1>Parlez avec le monde entier, <em>dans votre langue.</em></h1>
+      <p class="slogan">Écrivez en français, vos amis lisent dans leur langue. La traduction se fait toute seule.</p>
 
-       <p>
-        <label for="courriel">Adresse courriel</label>
-        <input type="email" id="courriel" name="courriel"
-          pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-          title="Exemple : alice@exemple.com" placeholder="exemple@courriel.com"
-          autocomplete="email" required>
-      </p>
-      <p id="courriel-message"></p>
+      <div class="apercu" aria-hidden="true">
+        <div class="apercu-entete">
+          <div class="pastille">S</div>
+          <div>
+            <strong>Sarah</strong>
+            <small>en ligne</small>
+          </div>
+        </div>
 
-      <p>
-        <label for="mdp">Mot de passe</label>
-        <input type="password" id="mdp" name="mdp" autocomplete="current-password" required>
-      </p>
-      <p id="mdp-message"></p>
+        <div class="bulle recue">
+          Hi, how are you?
+          <span class="traduction"><i class="fa-solid fa-language"></i> Salut, ça va ?</span>
+        </div>
+        <div class="bulle envoyee">
+          Oui merci et toi ?
+          <span class="traduction"><i class="fa-solid fa-language"></i> Traduit en anglais</span>
+        </div>
+      </div>
 
-      <p>
-        <label>
-          <input type="checkbox" name="souvenir">
-          Se souvenir de moi
-        </label>
-      </p>
+      <ul class="avantages">
+        <li><i class="fa-solid fa-language"></i> Traduction automatique</li>
+        <li><i class="fa-solid fa-bolt"></i> Messages instantanés</li>
+        <li><i class="fa-solid fa-lock"></i> Libre et respectueux de vos données</li>
+      </ul>
+    </section>
 
-      <p>
-         <button type="submit">Se connecter</button>
-      </p>
-    </form>
+    <main class="connexion">
+      <div class="carte">
+        <h2>Bon retour !</h2>
+        <p class="sous-titre">Connectez-vous pour retrouver vos conversations.</p>
 
-      <nav>
-        <p><a href="mot-de-passe-oublie.html">Mot de passe oublié ?</a></p>
-        <p>Pas encore de compte ? <a href="inscription.html">S'inscrire</a></p>
-      </nav>
+        <form action="conversation.html" method="get">
 
-  </main>
+          <div class="champ">
+            <label for="courriel">Courriel</label>
+            <div class="saisie">
+              <i class="fa-solid fa-envelope"></i>
+              <input type="email" id="courriel" name="courriel" placeholder="nom@exemple.com" required>
+            </div>
+          </div>
 
-  <footer>
-    <p>Messages traduits automatiquement avec LibreTranslate, un logiciel libre.</p>
-    <p>&copy; 2026 MonChat - Projet fil-rouge</p>
-    <a href="contact.html">Contact</a>
-  </footer>
+          <div class="champ">
+            <label for="mot-de-passe">Mot de passe</label>
+            <div class="saisie">
+              <i class="fa-solid fa-lock"></i>
+              <input type="password" id="mot-de-passe" name="mot-de-passe" placeholder="Votre mot de passe" minlength="8" required>
+            </div>
+          </div>
 
+          <button type="submit" class="bouton">
+            Se connecter <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </form>
 
+        <p class="inscription">Pas encore de compte ? <a href="inscription.html">Créer un compte</a></p>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
