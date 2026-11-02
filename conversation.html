@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -16,6 +18,7 @@
 
   <div class="container">
 
+    <!-- Colonne de gauche : liste des conversations -->
     <aside id="liste-conversations">
 
       <header class="entete-liste">
@@ -28,53 +31,25 @@
         </div>
       </header>
 
-    <section>
-      <h2>Conversations</h2>
-      <ul>
-        <li>
-          <a href="conversation.html">
-            <strong>Sarah</strong>
-            <small>Anglais</small>
-          </a>
-        </li>
-        <li><a href="#">Salon general</a></li>
-        <li><a href="#">Projet fil-rouge</a></li>
-        <li><a href="#">Amis</a></li>
-      </ul>
-    </section>
-
-    <nav>
-      <a href="parametre.html">Parametres</a>
-      <a href="contact.html">Contact</a>
-      <a href="index.html">Se deconnecter</a>
-    </nav>
-  </aside>
-
       <div class="recherche">
         <i class="fa-solid fa-magnifying-glass"></i>
         <input type="search" id="recherche" placeholder="Rechercher une conversation">
       </div>
-
 
       <section>
         <h2 class="cache">Conversations</h2>
         <ul id="liste-contacts"></ul>
       </section>
 
-    <header>
-      <h2>Conversation avec Sarah</h2>
-      <p><small>Sarah parle anglais. Vous la lisez en francais.</small></p>
-    </header>
-
-
       <nav>
         <a href="parametre.html"><i class="fa-solid fa-gear"></i> Paramètres</a>
         <a href="contact.html"><i class="fa-solid fa-address-book"></i> Contact</a>
         <a href="index.html"><i class="fa-solid fa-right-from-bracket"></i> Se déconnecter</a>
       </nav>
+
     </aside>
 
-
+    <!-- Colonne de droite : conversation ouverte -->
     <main id="conversation-ouverte">
 
       <header class="entete-conversation">
@@ -111,12 +86,10 @@
         <p><time datetime="14:03">14:03</time></p>
       </article>
 
-
       <section id="messages"></section>
 
       <footer>
         <form id="formulaire-envoi" action="conversation.html" method="post">
-
 
           <label for="langue-envoi" class="cache">Traduire mon message en</label>
           <select id="langue-envoi" name="langue-envoi" title="Traduire mon message en">
@@ -125,16 +98,6 @@
             <option value="es">ES Espagnol</option>
             <option value="de">DE Allemand</option>
             <option value="it">IT Italien</option>
-
-        <p>
-          <label for="langue-envoi">Traduire mon message en</label>
-          <select id="langue-envoi" name="langue-envoi">
-            <option value="en" selected>Anglais</option>
-            <option value="fr">Francais</option>
-            <option value="es">Espagnol</option>
-            <option value="de">Allemand</option>
-            <option value="it">Italien</option>
-
           </select>
 
           <label for="texte" class="cache">Votre message</label>
@@ -154,3 +117,4 @@
 </body>
 
 </html>
+
