@@ -22,7 +22,7 @@ const avatarContact = document.querySelector("#avatar-contact");
 const nomContact = document.querySelector("#nom-contact");
 const infoContact = document.querySelector("#info-contact");
 
-const CLE_STOCKAGE = "monchat-contacts-v3";
+const CLE_STOCKAGE = "monchat-contacts-v5";
 
 let contacts = [];
 let contactActif = null;
@@ -52,6 +52,159 @@ function chargerContacts() {
           original: "Oui merci et toi ?",
           langue: "anglais",
           heure: "14:03"
+        },
+        {
+          auteur: "autre",
+          texte: "Super ! Tu as vu le projet fil-rouge ?",
+          original: "Great! Have you seen the group project?",
+          langue: "anglais",
+          heure: "14:04"
+        },
+        {
+          auteur: "moi",
+          texte: "Yes, I'm working on the conversation page.",
+          original: "Oui, je travaille sur la page de conversation.",
+          langue: "anglais",
+          heure: "14:05"
+        },
+        {
+          auteur: "autre",
+          texte: "Génial. Moi, je m'occupe du style CSS.",
+          original: "Awesome. I'm taking care of the CSS styling.",
+          langue: "anglais",
+          heure: "14:06"
+        },
+        {
+          auteur: "moi",
+          texte: "Perfect, shall we meet tomorrow to merge?",
+          original: "Parfait, on se retrouve demain pour fusionner ?",
+          langue: "anglais",
+          heure: "14:07"
+        },
+        {
+          auteur: "autre",
+          texte: "D'accord, à demain !",
+          original: "Okay, see you tomorrow!",
+          langue: "anglais",
+          heure: "14:08"
+        },
+        {
+          auteur: "moi",
+          texte: "See you tomorrow!",
+          original: "À demain !",
+          langue: "anglais",
+          heure: "14:09"
+        }
+      ]
+    },
+    {
+      nom: "Carlos",
+      langue: "Espagnol",
+      messages: [
+        {
+          auteur: "autre",
+          texte: "Salut ! Tu as fini le travail de groupe ?",
+          original: "¡Hola! ¿Terminaste el trabajo en grupo?",
+          langue: "espagnol",
+          heure: "10:15"
+        },
+        {
+          auteur: "moi",
+          texte: "Casi, solo me falta la parte de JavaScript.",
+          original: "Presque, il me manque juste la partie JavaScript.",
+          langue: "espagnol",
+          heure: "10:17"
+        },
+        {
+          auteur: "autre",
+          texte: "Super, je peux t'aider si tu veux.",
+          original: "Genial, puedo ayudarte si quieres.",
+          langue: "espagnol",
+          heure: "10:18"
+        },
+        {
+          auteur: "moi",
+          texte: "Gracias, te escribo esta tarde.",
+          original: "Merci, je t'écris cet après-midi.",
+          langue: "espagnol",
+          heure: "10:20"
+        }
+      ]
+    },
+    {
+      nom: "Lukas",
+      langue: "Allemand",
+      messages: [
+        {
+          auteur: "autre",
+          texte: "Bonjour ! La réunion de demain est à quelle heure ?",
+          original: "Hallo! Um wie viel Uhr ist das Treffen morgen?",
+          langue: "allemand",
+          heure: "09:05"
+        },
+        {
+          auteur: "moi",
+          texte: "Um 14 Uhr im Labor.",
+          original: "À 14 h au laboratoire.",
+          langue: "allemand",
+          heure: "09:07"
+        },
+        {
+          auteur: "autre",
+          texte: "Parfait, merci !",
+          original: "Perfekt, danke!",
+          langue: "allemand",
+          heure: "09:08"
+        }
+      ]
+    },
+    {
+      nom: "Giulia",
+      langue: "Italien",
+      messages: [
+        {
+          auteur: "autre",
+          texte: "Tu as vu la nouvelle maquette ?",
+          original: "Hai visto la nuova bozza?",
+          langue: "italien",
+          heure: "16:30"
+        },
+        {
+          auteur: "moi",
+          texte: "Sì, mi piace molto il colore blu.",
+          original: "Oui, j'aime beaucoup la couleur bleue.",
+          langue: "italien",
+          heure: "16:32"
+        },
+        {
+          auteur: "autre",
+          texte: "Moi aussi ! On la garde.",
+          original: "Anch'io! La teniamo.",
+          langue: "italien",
+          heure: "16:33"
+        },
+        {
+          auteur: "moi",
+          texte: "Perfetto, la mando domani.",
+          original: "Parfait, je l'envoie demain.",
+          langue: "italien",
+          heure: "16:35"
+        }
+      ]
+    },
+    {
+      nom: "Emma",
+      langue: "Français",
+      messages: [
+        {
+          auteur: "autre",
+          texte: "Salut ! Tu viens à la pause café ?",
+          heure: "11:40"
+        },
+        {
+          auteur: "moi",
+          texte: "Oui, j'arrive dans cinq minutes.",
+          heure: "11:41"
         }
       ]
     }
