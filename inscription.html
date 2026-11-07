@@ -15,114 +15,76 @@
   </header>
 
   <main>
-    <form action="conversation.html" method="post">
-      <h2>Creer un compte</h2>
+  <form id="formulaire-inscription">
+    <h2>Créer un compte</h2>
 
-      <fieldset>
-        <legend>Informations personnelles</legend>
-
-        <p>
-          <label for="nom">Nom complet</label>
-          <input type="text" id="nom" name="nom" placeholder="Ex: Marie Dupont" autocomplete="name" required>
-        </p>
-
-
-
-        <p>
-
-          <label for="courriel">Adresse courriel</label>
-          <input type="email" id="courriel" name="courriel" 
-          pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-  title="Exemple : alice@exemple.com" placeholder="exemple@courriel.com"
-  autocomplete="email" required>
-
-      <label for="mdp">Mot de passe</label>
-      <input type="password" id="mdp" name="mdp" minlength="8" placeholder="Au moins 8 caracteres" autocomplete="new-password" required>
-
-        </p>
-        <p id="courriel-message"></p>
-
-        <p>
-
-          <label for="mdp">Mot de passe</label>
-          <input type="password" id="mdp" name="mdp" pattern=".{8,}" 
-          title="Au moins 8 caracteres" placeholder="Au moins 8 caractères"
-            autocomplete="new-password" required>
-
-      <label for="mdp-confirm">Confirmer le mot de passe</label>
-      <input type="password" id="mdp-confirm" name="mdp-confirm" minlength="8" placeholder="Au moins 8 caracteres" autocomplete="new-password" required>
-
-        </p>
-        <p id="mdp-message"></p>
-
-        <p>
-          <label for="mdp-confirm">Confirmer le mot de passe</label>
-          <input type="password" id="mdp-confirm" name="mdp-confirm" pattern=".{8,}" 
-          title="Au moins 8 caracteres" placeholder="Au moins 8 caracteres"
-            autocomplete="new-password" required>
-        </p>
-        <p id="mdp-confirm-message"></p>
-
-      </fieldset>
-
-
-      <fieldset>
-        <legend>Votre langue</legend>
-
-        <p>
-          <label for="langue">Choisissez votre langue</label>
-          <select id="langue" name="langue" required>
-            <option value="">--Sélectionnez une langue--</option>
-            <option value="fr">Français</option>
-            <option value="en">Anglais</option>
-            <option value="es">Espagnol</option>
-            <option value="de">Allemand</option>
-            <option value="it">Italien</option>
-          </select>
-        </p>
-      </fieldset>
+    <fieldset>
+      <legend>Informations personnelles</legend>
 
       <p>
+        <label for="nom">Nom complet</label>
+        <input type="text" id="nom" name="nom" placeholder="Ex: Marie Dupont" autocomplete="name" required>
+      </p>
 
-        <label>
+      <p>
+        <label for="courriel">Adresse courriel</label>
+        <input type="email" id="courriel" name="courriel"
+          pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+          title="Exemple : alice@exemple.com" placeholder="exemple@courriel.com"
+          autocomplete="email" required>
+      </p>
+      <p id="courriel-message"></p>
 
+      <p>
+        <label for="mdp">Mot de passe</label>
+        <input type="password" id="mdp" name="mdp" pattern=".{8,}"
+          title="Au moins 8 caractères" placeholder="Au moins 8 caractères"
+          autocomplete="new-password" required>
+      </p>
+      <p id="mdp-message"></p>
+
+      <p>
+        <label for="mdp-confirm">Confirmer le mot de passe</label>
+        <input type="password" id="mdp-confirm" name="mdp-confirm" pattern=".{8,}"
+          title="Au moins 8 caractères" placeholder="Au moins 8 caractères"
+          autocomplete="new-password" required>
+      </p>
+      <p id="mdp-confirm-message"></p>
+    </fieldset>
+
+    <fieldset>
+      <legend>Votre langue</legend>
+      <p>
         <label for="langue">Choisissez votre langue</label>
         <select id="langue" name="langue" required>
-          <option value="">--Selectionnez une langue--</option>
-          <option value="fr">Francais</option>
+          <option value="">--Sélectionnez une langue--</option>
+          <option value="fr">Français</option>
           <option value="en">Anglais</option>
           <option value="es">Espagnol</option>
           <option value="de">Allemand</option>
           <option value="it">Italien</option>
         </select>
       </p>
-      </fieldset> 
+    </fieldset>
 
-      <p>
-<label>
+    <p>
+      <label>
+        <input type="checkbox" name="consentement" required>
+        J'accepte les <a href="#">conditions d'utilisation</a> et la <a href="#">politique de confidentialité</a>.
+      </label>
+    </p>
 
-          <input type="checkbox" name="consentement" required>
-          J'accepte les <a href="#">conditions d'utilisation</a> et la <a href="#">politique de confidentialite</a>.
-        </label>
-      </p>
+    <p id="erreur-inscription"></p>
 
-      <p>
-        <button type="submit">S'inscrire</button>
-      </p>
-    </form>
+    <p><button type="submit">S'inscrire</button></p>
+  </form>
 
-    <nav>
-      <p>Deja un compte ? <a href="index.html">Se connecter</a></p>
-    </nav>
-  </main>
-
-  <footer>
-    <p>Messages traduits automatiquement avec LibreTranslate, un logiciel libre.</p>
-    <p>&copy; 2026 MonChat - Projet fil-rouge</p>
-    <p><a href="contact.html">Contact</a></p>
-  </footer>
-
-  <script src="script.js"></script>
+  <nav>
+    <p>Déjà un compte ? <a href="index.html">Se connecter</a></p>
+  </nav>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-client.js"></script>
+<script src="script.js"></script>
+<script src="inscription.js"></script>
 </body>
-
 </html>
