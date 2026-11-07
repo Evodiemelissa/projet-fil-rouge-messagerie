@@ -67,7 +67,7 @@
         <h2>Bon retour !</h2>
         <p class="sous-titre">Connectez-vous pour retrouver vos conversations.</p>
 
-        <form action="conversation.html" method="get">
+        <form id="formulaire-connexion">
 
           <div class="champ">
             <label for="courriel">Courriel</label>
@@ -84,7 +84,7 @@
               <input type="password" id="mot-de-passe" name="mot-de-passe" placeholder="Votre mot de passe" minlength="8" required>
             </div>
           </div>
-
+          <p id="erreur-connexion"></p>
           <button type="submit" class="bouton">
             Se connecter <i class="fa-solid fa-arrow-right"></i>
           </button>
@@ -96,7 +96,9 @@
 
   </div>
 
-  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-client.js"></script>
+<script src="connexion.js"></script>
 </body>
 
 </html>
