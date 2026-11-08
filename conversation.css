@@ -445,3 +445,17 @@ page-conversation {
   color: var(--wa-gris-texte);
   font-size: 14px;
 }
+.bouton-traduire {
+  font-size: 0.8em;
+  background: none;
+  border: none;
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+
+.traduction {
+  font-style: italic;
+  margin-top: 4px;
+}
