@@ -18,5 +18,5 @@ formulaire.addEventListener("submit", async function (event) {
     return;
   }
 
-  window.location.href = "conversation.html";
+  window.location.href = "pages/conversation.html";
 });

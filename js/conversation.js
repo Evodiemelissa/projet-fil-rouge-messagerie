@@ -85,7 +85,7 @@ async function verifierConnexion() {
   const { data } = await sb.auth.getSession();
 
   if (!data.session) {
-    window.location.href = "index.html";
+    window.location.href = "../index.html";
     return null;
   }
   return data.session.user;
