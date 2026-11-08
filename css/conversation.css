@@ -1,4 +1,4 @@
-page-conversation {
+.page-conversation {
   --wa-vert: var(--bleu-fonce);
   --wa-vert-fonce: var(--bleu-fonce);
   --wa-vert-clair: var(--accent);
