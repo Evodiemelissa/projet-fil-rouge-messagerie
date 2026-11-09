@@ -1,4 +1,7 @@
+// validation-inscription.js : vérifie en direct le courriel et les mots de passe de la page d'inscription
+
 // ---------- Outil : afficher un message coloré ----------
+// Écrit le texte dans l'élément, en vert si c'est valide et en rouge sinon
 function afficherMessage(element, texte, estValide) {
   element.textContent = texte;
 
@@ -15,9 +18,12 @@ function afficherMessage(element, texte, estValide) {
 const courriel = document.querySelector("#courriel");
 const courrielMessage = document.querySelector("#courriel-message");
 
+// Renvoie true si le courriel a la forme nom@domaine.ext (sans espaces)
 function validerCourriel(valeur) {
+  // On coupe le texte en deux morceaux autour du @
   const morceaux = valeur.split("@");
 
+  // Il doit y avoir exactement un @
   if (morceaux.length !== 2) {
     return false;
   }
@@ -25,15 +31,18 @@ function validerCourriel(valeur) {
   const nom = morceaux[0];
   const domaine = morceaux[1];
 
+  // Les différentes vérifications, chacune donne vrai ou faux
   const nomPresent = nom !== "";
   const domaineAUnPoint = domaine.includes(".");
   const pointAuDebut = domaine.startsWith(".");
   const pointALaFin = domaine.endsWith(".");
   const aDesEspaces = valeur.includes(" ");
 
+  // Tout doit être correct en même temps
   return nomPresent && domaineAUnPoint && !pointAuDebut && !pointALaFin && !aDesEspaces;
 }
 
+// À chaque lettre tapée, on affiche un message vert ou rouge
 courriel.addEventListener("input", function (event) {
   const valeur = event.target.value;
 
@@ -52,6 +61,7 @@ const mdpMessage = document.querySelector("#mdp-message");
 const mdpConfirm = document.querySelector("#mdp-confirm");
 const mdpConfirmMessage = document.querySelector("#mdp-confirm-message");
 
+// Vérifie la longueur du mot de passe (8 caractères minimum)
 function verifierMotDePasse() {
   const valeur = mdp.value;
 
@@ -64,6 +74,7 @@ function verifierMotDePasse() {
   }
 }
 
+// Vérifie que la confirmation est identique au mot de passe
 function verifierConfirmation() {
   if (mdpConfirm.value === "") {
     afficherMessage(mdpConfirmMessage, "Veuillez confirmer le mot de passe.", false);
@@ -74,9 +85,11 @@ function verifierConfirmation() {
   }
 }
 
+// Quand le mot de passe change, on revérifie aussi la confirmation
 mdp.addEventListener("input", function () {
   verifierMotDePasse();
   verifierConfirmation();
 });
 
+// Quand la confirmation change, on la revérifie
 mdpConfirm.addEventListener("input", verifierConfirmation);
