@@ -1,95 +1,108 @@
+/* Style général de la page d'accueil */
 .page-accueil {
-  display: block;
-  margin: 0;
-  min-height: 100vh;
-  background-color: var(--fond);
-  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+  display: block; /* Affiche la page comme un élément de type bloc */
+  margin: 0; /* Supprime les marges extérieures */
+  min-height: 100vh; /* La page occupe au minimum toute la hauteur de l'écran */
+  background-color: var(--fond); /* Utilise la couleur de fond définie dans les variables CSS */
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif; /* Définit les polices de caractères */
 }
 
+/* Applique ces règles à tous les éléments de la page et à leurs pseudo-éléments */
 .page-accueil *,
 .page-accueil *::before,
 .page-accueil *::after {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Inclut les bordures et les marges internes dans les dimensions */
 }
 
+/* Organisation principale : deux colonnes */
 .accueil {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  min-height: 100vh;
+  display: grid; /* Utilise CSS Grid pour organiser les éléments */
+  grid-template-columns: 1.1fr 1fr; /* La première colonne est légèrement plus grande */
+  min-height: 100vh; /* Occupe toute la hauteur de l'écran */
 }
 
+/* Partie gauche : présentation et mise en valeur de l'application */
 .vitrine {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 24px;
-  padding: 48px 56px;
-  overflow: hidden;
-  background: linear-gradient(145deg, var(--bleu-fonce) 0%, var(--bleu) 100%);
-  color: white;
+  position: relative; /* Permet de positionner les éléments à l'intérieur */
+  display: flex; /* Utilise Flexbox */
+  flex-direction: column; /* Dispose les éléments verticalement */
+  justify-content: center; /* Centre les éléments verticalement */
+  gap: 24px; /* Ajoute un espace entre les éléments */
+  padding: 48px 56px; /* Ajoute des marges intérieures */
+  overflow: hidden; /* Cache les éléments qui dépassent */
+  background: linear-gradient(145deg, var(--bleu-fonce) 0%, var(--bleu) 100%); /* Crée un dégradé bleu */
+  color: white; /* Définit la couleur du texte en blanc */
 }
 
+/* Création de deux cercles décoratifs en arrière-plan */
 .vitrine::before,
 .vitrine::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.07);
+  content: ""; /* Crée un pseudo-élément vide */
+  position: absolute; /* Positionne les cercles indépendamment du contenu */
+  border-radius: 50%; /* Transforme les éléments en cercles */
+  background-color: rgba(255, 255, 255, 0.07); /* Applique un blanc légèrement transparent */
 }
 
+/* Premier cercle décoratif en haut à droite */
 .vitrine::before {
-  top: -120px;
-  right: -120px;
-  width: 360px;
-  height: 360px;
+  top: -120px; /* Décale le cercle vers le haut */
+  right: -120px; /* Décale le cercle vers la droite */
+  width: 360px; /* Définit sa largeur */
+  height: 360px; /* Définit sa hauteur */
 }
 
+/* Deuxième cercle décoratif en bas à gauche */
 .vitrine::after {
-  bottom: -160px;
-  left: -100px;
-  width: 420px;
-  height: 420px;
+  bottom: -160px; /* Décale le cercle vers le bas */
+  left: -100px; /* Décale le cercle vers la gauche */
+  width: 420px; /* Définit sa largeur */
+  height: 420px; /* Définit sa hauteur */
 }
 
+/* Place le contenu de la vitrine au-dessus des cercles décoratifs */
 .vitrine > * {
   position: relative;
-  z-index: 1;
+  z-index: 1; /* Définit la priorité d'affichage */
 }
 
+/* Mise en forme du logo */
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 26px;
-  font-weight: 700;
+  display: flex; /* Aligne les éléments horizontalement */
+  align-items: center; /* Centre les éléments verticalement */
+  gap: 12px; /* Espace entre l'icône et le texte */
+  font-size: 26px; /* Taille du texte */
+  font-weight: 700; /* Texte en gras */
 }
 
+/* Mise en forme de l'icône du logo */
 .logo i {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 46px;
   height: 46px;
-  border-radius: 14px;
-  background-color: var(--accent);
+  border-radius: 14px; /* Arrondit les coins */
+  background-color: var(--accent); /* Utilise la couleur d'accentuation */
   color: var(--bleu-fonce);
   font-size: 22px;
 }
 
+/* Titre principal de la vitrine */
 .vitrine h1 {
   margin: 0;
-  max-width: 520px;
+  max-width: 520px; /* Limite la largeur du titre */
   font-size: 40px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.2; /* Définit l'espacement entre les lignes */
 }
 
+/* Met en évidence une partie du titre */
 .vitrine h1 em {
   color: var(--accent);
-  font-style: normal;
+  font-style: normal; /* Supprime l'italique */
 }
 
+/* Texte de présentation de l'application */
 .slogan {
   margin: 0;
   max-width: 460px;
@@ -98,6 +111,7 @@
   line-height: 1.6;
 }
 
+/* Carte qui présente un aperçu d'une conversation */
 .apercu {
   display: flex;
   flex-direction: column;
@@ -108,27 +122,31 @@
   border-radius: 20px;
   background-color: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2); /* Ajoute une ombre */
 }
 
+/* En-tête de l'aperçu de conversation */
 .apercu-entete {
   display: flex;
   align-items: center;
   gap: 12px;
   padding-bottom: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Ligne de séparation */
 }
 
+/* Nom ou titre dans l'en-tête */
 .apercu-entete strong {
   display: block;
   font-size: 15px;
 }
 
+/* Texte secondaire dans l'en-tête */
 .apercu-entete small {
   color: #bfdbfe;
   font-size: 12px;
 }
 
+/* Pastille circulaire représentant un utilisateur ou une icône */
 .pastille {
   display: flex;
   align-items: center;
@@ -141,6 +159,7 @@
   font-weight: 700;
 }
 
+/* Style commun aux bulles de conversation */
 .bulle {
   max-width: 80%;
   padding: 10px 14px;
@@ -149,20 +168,23 @@
   line-height: 1.4;
 }
 
+/* Bulle correspondant à un message reçu */
 .bulle.recue {
-  align-self: flex-start;
+  align-self: flex-start; /* Place la bulle à gauche */
   border-top-left-radius: 4px;
   background-color: white;
   color: var(--texte);
 }
 
+/* Bulle correspondant à un message envoyé */
 .bulle.envoyee {
-  align-self: flex-end;
+  align-self: flex-end; /* Place la bulle à droite */
   border-top-right-radius: 4px;
   background-color: var(--accent);
   color: var(--texte);
 }
 
+/* Texte affichant la traduction sous un message */
 .traduction {
   display: block;
   margin-top: 4px;
@@ -170,25 +192,28 @@
   font-size: 12px;
 }
 
+/* Liste des avantages de l'application */
 .avantages {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Autorise les éléments à passer à la ligne */
   gap: 10px 22px;
   margin: 0;
   padding: 0;
-  list-style: none;
+  list-style: none; /* Supprime les puces de la liste */
   font-size: 14px;
 }
 
+/* Icônes présentes dans la liste des avantages */
 .avantages i {
   margin-right: 6px;
   color: var(--accent);
 }
 
+/* Partie droite : zone de connexion */
 .page-accueil .connexion {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center; /* Centre verticalement la carte */
+  justify-content: center; /* Centre horizontalement la carte */
   margin: 0;
   padding: 32px;
   border: none;
@@ -197,16 +222,18 @@
   background-color: var(--fond);
 }
 
+/* Carte contenant le formulaire de connexion */
 .carte {
   width: 100%;
   max-width: 420px;
   padding: 40px 36px;
   border-radius: 24px;
-  border-top: 5px solid var(--accent);
+  border-top: 5px solid var(--accent); /* Bordure colorée en haut */
   background-color: white;
   box-shadow: 0 20px 50px rgba(30, 58, 138, 0.15);
 }
 
+/* Titre du formulaire */
 .carte h2 {
   margin: 0 0 6px;
   color: var(--bleu-fonce);
@@ -214,16 +241,19 @@
   font-weight: 700;
 }
 
+/* Sous-titre du formulaire */
 .sous-titre {
   margin: 0 0 28px;
   color: #6b7280;
   font-size: 14px;
 }
 
+/* Conteneur de chaque champ du formulaire */
 .champ {
   margin-bottom: 20px;
 }
 
+/* Étiquette du champ (ex. adresse courriel, mot de passe) */
 .champ label {
   display: block;
   margin-bottom: 8px;
@@ -232,36 +262,41 @@
   font-weight: 500;
 }
 
+/* Conteneur permettant de positionner une icône dans le champ */
 .saisie {
   position: relative;
 }
 
+/* Positionnement des icônes à l'intérieur des champs */
 .saisie i {
   position: absolute;
   top: 50%;
   left: 16px;
-  transform: translateY(-50%);
+  transform: translateY(-50%); /* Centre l'icône verticalement */
   color: var(--bleu);
 }
 
+/* Mise en forme des zones de saisie */
 .saisie input {
   width: 100%;
-  padding: 14px 16px 14px 44px;
+  padding: 14px 16px 14px 44px; /* Laisse de la place à gauche pour l'icône */
   border: 2px solid #e5e7eb;
   border-radius: 12px;
   background-color: #f9fafb;
   font-family: inherit;
   font-size: 15px;
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none; /* Supprime le contour par défaut */
+  transition: border-color 0.2s, box-shadow 0.2s; /* Anime les changements */
 }
 
+/* Apparence du champ lorsqu'on clique dessus */
 .saisie input:focus {
   border-color: var(--bleu);
   background-color: white;
   box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
 }
 
+/* Mise en forme du bouton de connexion */
 .bouton {
   display: flex;
   align-items: center;
@@ -277,15 +312,17 @@
   font-family: inherit;
   font-size: 16px;
   font-weight: 600;
-  cursor: pointer;
+  cursor: pointer; /* Affiche une main au survol */
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
+/* Effet visuel lorsque la souris passe sur le bouton */
 .bouton:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px); /* Déplace légèrement le bouton vers le haut */
   box-shadow: 0 10px 20px rgba(37, 99, 235, 0.35);
 }
 
+/* Texte proposant de créer un compte */
 .inscription {
   margin: 24px 0 0;
   color: #6b7280;
@@ -293,44 +330,53 @@
   text-align: center;
 }
 
+/* Mise en forme du lien d'inscription */
 .inscription a {
   color: var(--bleu);
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: none; /* Supprime le soulignement */
 }
 
+/* Changement de couleur du lien au survol */
 .inscription a:hover {
   color: var(--accent);
 }
 
+/* Adaptation de la page aux écrans de petite taille */
 @media (max-width: 860px) {
+
+  /* Passe les deux colonnes en une seule colonne */
   .accueil {
     grid-template-columns: 1fr;
   }
 
+  /* Réduit les marges intérieures de la vitrine */
   .vitrine {
     padding: 32px 24px;
   }
 
+  /* Réduit la taille du titre */
   .vitrine h1 {
     font-size: 28px;
   }
 
+  /* Cache l'aperçu et la liste des avantages sur petit écran */
   .apercu,
   .avantages {
     display: none;
   }
 
+  /* Ajuste les marges de la zone de connexion */
   .page-accueil .connexion {
     padding: 24px 16px;
   }
 }
 
+/* Arrière-plan décoratif supplémentaire de la vitrine */
 .vitrine {
   background:
-    radial-gradient(circle at 18% 22%, rgba(245, 158, 11, 0.22) 0, transparent 38%),
-    radial-gradient(circle at 88% 82%, rgba(59, 130, 246, 0.50) 0, transparent 42%),
-    radial-gradient(rgba(255, 255, 255, 0.13) 1.5px, transparent 1.5px) 0 0 / 28px 28px,
-    linear-gradient(145deg, var(--bleu-fonce) 0%, var(--bleu) 100%);
+    radial-gradient(circle at 18% 22%, rgba(245, 158, 11, 0.22) 0, transparent 38%), /* Lumière orange */
+    radial-gradient(circle at 88% 82%, rgba(59, 130, 246, 0.50) 0, transparent 42%), /* Lumière bleue */
+    radial-gradient(rgba(255, 255, 255, 0.13) 1.5px, transparent 1.5px) 0 0 / 28px 28px, /* Motif de petits points */
+    linear-gradient(145deg, var(--bleu-fonce) 0%, var(--bleu) 100%); /* Dégradé principal */
 }
-
