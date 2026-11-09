@@ -1,3 +1,7 @@
+/* conversation.css : style de la page de conversation (pages/conversation.html)
+   Deux colonnes : la liste des salons à gauche, les messages du salon ouvert à droite. */
+ 
+/* ---------- Page : couleurs (variables), fond et hauteur ---------- */
 .page-conversation {
   --wa-vert: var(--bleu-fonce);
   --wa-vert-fonce: var(--bleu-fonce);
@@ -16,6 +20,7 @@
   font-family: "Segoe UI", Helvetica, Arial, sans-serif;
 }
  
+/* Toute la page : la largeur et la hauteur incluent le padding et la bordure (box-sizing) */
 .page-conversation,
 .page-conversation *,
 .page-conversation *::before,
@@ -23,6 +28,7 @@
   box-sizing: border-box;
 }
  
+/* Texte caché à l'écran mais lu par les lecteurs d'écran (accessibilité) */
 .page-conversation .cache {
   position: absolute;
   width: 1px;
@@ -32,6 +38,7 @@
   white-space: nowrap;
 }
  
+/* ---------- Mise en page générale : deux colonnes côte à côte ---------- */
 .page-conversation .container {
   display: flex;
   flex-direction: row;
@@ -44,6 +51,9 @@
   box-shadow: 0 6px 18px rgba(11, 20, 26, 0.2);
 }
  
+/* ---------- Colonne de gauche : liste des salons ---------- */
+ 
+/* Conteneur de la colonne (largeur limitée, éléments empilés) */
 #liste-conversations {
   display: flex;
   flex-direction: column;
@@ -54,6 +64,7 @@
   border-right: 1px solid #d1d7db;
 }
  
+/* En-tête de la colonne : titre MonChat et boutons à droite */
 .page-conversation .entete-liste {
   display: flex;
   align-items: center;
@@ -70,6 +81,7 @@
   color: white;
 }
  
+/* Icônes de l'en-tête (bouton +, engrenage) : couleur, espacement et survol */
 .entete-liste .icones,
 .entete-conversation .icones {
   color: white;
@@ -95,6 +107,7 @@
   cursor: pointer;
 }
  
+/* Barre de recherche des salons */
 .recherche {
   position: relative;
   padding: 8px 12px;
@@ -120,6 +133,7 @@
   outline: none;
 }
  
+/* Zone de la liste : elle défile quand il y a beaucoup de salons */
 #liste-conversations section {
   flex: 1;
   min-height: 0;
@@ -132,6 +146,7 @@
   list-style: none;
 }
  
+/* Un salon dans la liste : lien, survol et salon sélectionné */
 #liste-conversations li a {
   display: flex;
   align-items: center;
@@ -150,6 +165,7 @@
   background-color: var(--wa-gris-fond);
 }
  
+/* Pastille ronde avec l'initiale du salon */
 .avatar {
   flex-shrink: 0;
   display: flex;
@@ -164,6 +180,7 @@
   font-weight: bold;
 }
  
+/* Nom du salon et petit texte en dessous */
 #liste-conversations .infos {
   flex: 1;
   min-width: 0;
@@ -185,6 +202,7 @@
   font-size: 14px;
 }
  
+/* Heure et badge à droite d'un salon (prévus dans le style, pas utilisés pour l'instant) */
 .meta {
   display: flex;
   flex-direction: column;
@@ -211,6 +229,7 @@
   font-weight: bold;
 }
  
+/* Menu du bas de la colonne : Paramètres, Contact, Se déconnecter */
 #liste-conversations nav {
   display: flex;
   justify-content: space-around;
@@ -229,6 +248,9 @@
   color: var(--wa-vert-fonce);
 }
  
+/* ---------- Colonne de droite : conversation ouverte ---------- */
+ 
+/* Conteneur de la conversation : en-tête, messages et formulaire empilés */
 .page-conversation #conversation-ouverte {
   flex: 1;
   min-width: 0;
@@ -242,6 +264,7 @@
   background-color: var(--wa-fond-chat);
 }
  
+/* En-tête de la conversation : initiale, nom du salon et information */
 .page-conversation .entete-conversation {
   display: flex;
   align-items: center;
@@ -266,6 +289,7 @@
   color: #bfdbfe;
 }
  
+/* ---------- Zone des messages : les bulles sont empilées et la zone défile ---------- */
 #messages {
   flex: 1;
   min-height: 0;
@@ -277,6 +301,7 @@
   scroll-behavior: smooth;
 }
  
+/* Bulle de message : forme commune à tous les messages */
 .message {
   position: relative;
   max-width: 65%;
@@ -291,18 +316,21 @@
   margin: 0;
 }
  
+/* Message reçu : à gauche, fond blanc */
 .message.recu {
   align-self: flex-start;
   background-color: white;
   border-top-left-radius: 0;
 }
  
+/* Message envoyé : à droite, fond bleu clair */
 .message.envoye {
   align-self: flex-end;
   background-color: var(--wa-bulle-envoyee);
   border-top-right-radius: 0;
 }
  
+/* Nom de l'auteur, affiché au-dessus d'un message reçu */
 .message .auteur,
 .message > p:first-child > strong {
   font-size: 13px;
@@ -310,12 +338,14 @@
   color: var(--wa-vert-fonce);
 }
  
+/* Petites notes en gris italique sous un message */
 .message .note small,
 .message > p > small {
   color: var(--wa-gris-texte);
   font-style: italic;
 }
  
+/* Message original repliable (balises details et summary) */
 .message details {
   margin-top: 2px;
 }
@@ -333,6 +363,7 @@
   font-size: 14px;
 }
  
+/* Heure du message, alignée à droite */
 .message .heure,
 .message time {
   display: block;
@@ -341,6 +372,7 @@
   color: var(--wa-gris-texte);
 }
  
+/* Double coche après l'heure des messages envoyés (icône Font Awesome) */
 .message.envoye .heure:not(:has(time))::after,
 .message.envoye time::after {
   content: "\f560";
@@ -350,17 +382,22 @@
   color: var(--bleu-clair);
 }
  
+/* ---------- Formulaire d'envoi, en bas de la conversation ---------- */
+ 
+/* Pied de page qui contient le formulaire */
 #conversation-ouverte footer {
   padding: 10px 16px;
   background-color: var(--wa-gris-fond);
 }
  
+/* Formulaire : liste de langue, champ de texte et bouton alignés sur une ligne */
 #formulaire-envoi {
   display: flex;
   align-items: center;
   gap: 10px;
 }
  
+/* Liste déroulante de langue (encore dans le HTML, mais plus utilisée par le JS) */
 #formulaire-envoi select {
   padding: 10px 8px;
   border: none;
@@ -371,6 +408,7 @@
   cursor: pointer;
 }
  
+/* Champ où l'on écrit le message */
 #formulaire-envoi input[type="text"] {
   flex: 1;
   min-width: 0;
@@ -382,6 +420,7 @@
   outline: none;
 }
  
+/* Bouton d'envoi, rond */
 #formulaire-envoi button {
   flex-shrink: 0;
   width: 44px;
@@ -398,6 +437,7 @@
   background-color: var(--bleu);
 }
  
+/* ---------- Petits écrans (téléphone) : la colonne de gauche est réduite aux initiales ---------- */
 @media (max-width: 700px) {
   #liste-conversations {
     width: 78px;
@@ -423,6 +463,7 @@
   }
 }
  
+/* Boutons placés dans les icônes (bouton + pour créer un salon) : ils ressemblent à des icônes */
 .icones button {
   padding: 0;
   border: none;
@@ -436,6 +477,7 @@
   color: var(--accent);
 }
  
+/* Message affiché quand un salon n'a encore aucun message */
 .message-vide {
   align-self: center;
   margin: 20px 0;
@@ -445,6 +487,7 @@
   color: var(--wa-gris-texte);
   font-size: 14px;
 }
+/* ---------- Traduction : bouton et texte traduit sous un message reçu ---------- */
 .bouton-traduire {
   font-size: 0.8em;
   background: none;
@@ -454,7 +497,7 @@
   cursor: pointer;
   padding: 0;
 }
-
+ 
 .traduction {
   font-style: italic;
   margin-top: 4px;
