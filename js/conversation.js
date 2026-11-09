@@ -56,15 +56,15 @@ async function traduireAvecMyMemory(texte, langueCible) {
   return donnees.responseData.translatedText;
 }
 
-// Essaie LibreTranslate, puis MyMemory si le premier ne répond pas
+// Essaie MyMemory, puis LibreTranslate si le premier ne répond pas
 async function traduire(texte, langueCible) {
   try {
-    const traduction = await traduireAvecLibreTranslate(texte, langueCible);
-    return { texte: traduction, service: "LibreTranslate" };
-  } catch (erreur) {
-    console.warn("LibreTranslate indisponible, essai avec MyMemory :", erreur);
     const traduction = await traduireAvecMyMemory(texte, langueCible);
     return { texte: traduction, service: "MyMemory" };
+  } catch (erreur) {
+    console.warn("MyMemory indisponible, essai avec LibreTranslate :", erreur);
+    const traduction = await traduireAvecLibreTranslate(texte, langueCible);
+    return { texte: traduction, service: "LibreTranslate" };
   }
 }
 
