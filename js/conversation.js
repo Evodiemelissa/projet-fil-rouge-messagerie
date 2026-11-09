@@ -1,7 +1,12 @@
+// conversation.js : page de conversation (salons, messages en temps réel, traduction avec LibreTranslate)
+
 // ---------- Traduction (inchangée, réutilisée plus tard) ----------
+// Adresse du serveur LibreTranslate (service de traduction libre)
 const URL_API = "https://translate.cutie.dating";
+// Clé d'API : vide, car ce serveur n'en demande pas
 const CLE_API = "";
 
+// Codes de langue (envoyés à l'API) -> noms en français
 const LANGUES = {
   en: "anglais",
   fr: "français",
@@ -10,6 +15,7 @@ const LANGUES = {
   it: "italien"
 };
 
+// Traduction principale : envoie le texte à LibreTranslate (abandon après 5 secondes)
 async function traduireAvecLibreTranslate(texte, langueCible) {
   const reponse = await fetch(URL_API + "/translate", {
     method: "POST",
@@ -32,6 +38,7 @@ async function traduireAvecLibreTranslate(texte, langueCible) {
   return donnees.translatedText;
 }
 
+// Traduction de secours : service MyMemory (abandon après 8 secondes)
 async function traduireAvecMyMemory(texte, langueCible) {
   const adresse = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(texte) + "&langpair=fr|" + langueCible;
   const reponse = await fetch(adresse, { signal: AbortSignal.timeout(8000) });
@@ -49,6 +56,7 @@ async function traduireAvecMyMemory(texte, langueCible) {
   return donnees.responseData.translatedText;
 }
 
+// Essaie LibreTranslate, puis MyMemory si le premier ne répond pas
 async function traduire(texte, langueCible) {
   try {
     const traduction = await traduireAvecLibreTranslate(texte, langueCible);
@@ -61,6 +69,7 @@ async function traduire(texte, langueCible) {
 }
 
 // ---------- Éléments de la page ----------
+// On récupère les éléments HTML dont on a besoin grâce à leur id
 const listeSalons = document.querySelector("#liste-contacts");
 const zoneMessages = document.querySelector("#messages");
 const formulaire = document.querySelector("#formulaire-envoi");
@@ -69,6 +78,7 @@ const boutonEnvoyer = document.querySelector("#formulaire-envoi button");
 const champRecherche = document.querySelector("#recherche");
 const boutonAjouter = document.querySelector("#btn-ajouter-contact");
 
+// Éléments de l'en-tête de la conversation (initiale, nom, information)
 const avatarSalon = document.querySelector("#avatar-contact");
 const nomSalon = document.querySelector("#nom-contact");
 const infoSalon = document.querySelector("#info-contact");
@@ -81,10 +91,12 @@ let salonActif = null;
 let canalMessages = null;     // abonnement temps réel au salon ouvert
 
 // ---------- Connexion ----------
+// Vérifie qu'une personne est connectée à Supabase ; sinon renvoie vers la page d'accueil
 async function verifierConnexion() {
   const { data } = await sb.auth.getSession();
 
   if (!data.session) {
+    // Pas de session : retour à la connexion (../ car on est dans le dossier pages)
     window.location.href = "../index.html";
     return null;
   }
@@ -92,6 +104,7 @@ async function verifierConnexion() {
 }
 
 // ---------- Salons ----------
+// Charge les salons depuis la table « channels » de Supabase, triés par nom
 async function chargerSalons() {
   const { data, error } = await sb
     .from("channels")
@@ -106,6 +119,7 @@ async function chargerSalons() {
   salons = data;
 }
 
+// Affiche la liste des salons dans la colonne de gauche
 function afficherSalons() {
   listeSalons.textContent = "";
 
@@ -131,6 +145,7 @@ function afficherSalons() {
     infos.append(nom);
     lien.append(avatar, infos);
 
+    // Au clic sur un salon, on l'ouvre (preventDefault évite de suivre le lien #)
     lien.addEventListener("click", function (event) {
       event.preventDefault();
       choisirSalon(salon);
@@ -141,6 +156,7 @@ function afficherSalons() {
   });
 }
 
+// Ouvre un salon : met à jour l'affichage, charge ses messages et écoute les nouveaux
 async function choisirSalon(salon) {
   salonActif = salon;
   afficherSalons();
@@ -149,6 +165,7 @@ async function choisirSalon(salon) {
   abonnerAuxMessages();
 }
 
+// Affiche le nom et l'initiale du salon ouvert dans l'en-tête de droite
 function afficherEnteteSalon() {
   if (salonActif === null) {
     avatarSalon.textContent = "?";
@@ -162,6 +179,7 @@ function afficherEnteteSalon() {
   infoSalon.textContent = "Salon";
 }
 
+// Crée un nouveau salon dans Supabase (le nom est demandé avec prompt)
 async function creerSalon() {
   const nom = prompt("Nom du nouveau salon ?");
 
@@ -185,9 +203,11 @@ async function creerSalon() {
 }
 
 // ---------- Messages ----------
+// Transforme une date de Supabase en heure lisible (HH:MM)
 function formaterHeure(dateTexte) {
   return new Date(dateTexte).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
 }
+// Crée le bouton « Traduire en français » placé sous les messages reçus
 function creerBoutonTraduire(texteOriginal) {
   const conteneur = document.createElement("div");
 
@@ -200,6 +220,7 @@ function creerBoutonTraduire(texteOriginal) {
   resultat.classList.add("traduction");
   resultat.hidden = true;
 
+  // Sert à ne traduire qu'une fois, puis à afficher ou cacher le résultat
   let dejaTraduit = false;
 
   bouton.addEventListener("click", async function () {
@@ -231,11 +252,14 @@ function creerBoutonTraduire(texteOriginal) {
   conteneur.append(bouton, resultat);
   return conteneur;
 }
+// Construit la bulle HTML d'un message (envoyé ou reçu)
 function creerBulle(message) {
   const bulle = document.createElement("article");
   bulle.classList.add("message");
+  // L'id du message est gardé dans la bulle pour éviter les doublons
   bulle.dataset.id = message.id;
 
+  // Mes messages à droite (envoye), ceux des autres à gauche (recu) avec le nom de l'auteur
   if (message.user_id === utilisateur.id) {
     bulle.classList.add("envoye");
   } else {
@@ -247,9 +271,11 @@ function creerBulle(message) {
     bulle.append(auteur);
   }
 
+  // textContent (et non innerHTML) : le texte est affiché tel quel, ce qui évite les failles XSS
   const texte = document.createElement("p");
   texte.textContent = message.content;
   bulle.append(texte);
+    // Le bouton de traduction n'apparaît que sur les messages des autres
     if (message.user_id !== utilisateur.id) {
     bulle.append(creerBoutonTraduire(message.content));
   }
@@ -263,6 +289,7 @@ function creerBulle(message) {
   return bulle;
 }
 
+// Ajoute un message à l'écran (sans doublon) et fait défiler vers le bas
 function ajouterMessage(message) {
   // évite les doublons (envoi + temps réel)
   if (zoneMessages.querySelector('[data-id="' + message.id + '"]')) {
@@ -278,6 +305,7 @@ function ajouterMessage(message) {
   zoneMessages.scrollTop = zoneMessages.scrollHeight;
 }
 
+// Charge les messages du salon ouvert depuis la table « messages », du plus ancien au plus récent
 async function chargerMessages() {
   zoneMessages.textContent = "";
 
@@ -309,6 +337,7 @@ async function chargerMessages() {
 }
 
 // ---------- Temps réel ----------
+// Écoute en temps réel les nouveaux messages du salon ouvert (Supabase Realtime)
 function abonnerAuxMessages() {
   if (canalMessages !== null) {
     sb.removeChannel(canalMessages);
@@ -319,6 +348,7 @@ function abonnerAuxMessages() {
     return;
   }
 
+  // Chaque nouveau message inséré dans ce salon est ajouté à l'écran
   canalMessages = sb
     .channel("messages-" + salonActif.id)
     .on(
@@ -337,6 +367,7 @@ function abonnerAuxMessages() {
 }
 
 // ---------- Envoi ----------
+// Envoi d'un message : on l'enregistre dans Supabase, puis on l'affiche
 formulaire.addEventListener("submit", async function (event) {
   event.preventDefault();
 
@@ -374,6 +405,7 @@ formulaire.addEventListener("submit", async function (event) {
 });
 
 // ---------- Recherche ----------
+// Recherche : cache les salons dont le nom ne contient pas le texte saisi
 champRecherche.addEventListener("input", function () {
   const recherche = champRecherche.value.toLowerCase();
 
@@ -382,9 +414,11 @@ champRecherche.addEventListener("input", function () {
   });
 });
 
+// Le bouton + crée un nouveau salon
 boutonAjouter.addEventListener("click", creerSalon);
 
 // ---------- Démarrage ----------
+// Lancement de la page : vérifie la connexion, charge les salons et ouvre le premier
 async function demarrer() {
   utilisateur = await verifierConnexion();
   if (utilisateur === null) {
@@ -404,4 +438,5 @@ async function demarrer() {
   }
 }
 
+// On lance le programme
 demarrer();
