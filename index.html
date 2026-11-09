@@ -2,103 +2,206 @@
 <html lang="fr">
 
 <head>
+  <!-- Définition de l'encodage des caractères -->
   <meta charset="UTF-8">
+
+  <!-- Adaptation de la page aux différentes tailles d'écran -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Titre affiché dans l'onglet du navigateur -->
   <title>MonChat - Connexion</title>
 
+  <!-- Connexion aux serveurs Google Fonts pour charger les polices -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Importation de la police Poppins avec différentes épaisseurs -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+
+  <!-- Importation de la bibliothèque Font Awesome pour utiliser des icônes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+  <!-- Importation du fichier CSS contenant les styles généraux -->
   <link rel="stylesheet" href="css/base.css">
+
+  <!-- Importation du fichier CSS propre à la page d'accueil -->
   <link rel="stylesheet" href="css/accueil.css">
 </head>
 
+<!-- Corps de la page avec la classe permettant d'appliquer le style de l'accueil -->
 <body class="page-accueil">
 
-
+  <!-- Conteneur principal regroupant les différentes parties de la page -->
   <div class="accueil">
 
-  <header>
-    <h1>Bienvenue dans Mon Chat</h1>
-    <p>Discutez tout simplement avec vos proches dans la langue de votre choix. 
-    </p>
-  </header>
+    <!-- En-tête contenant un message de bienvenue -->
+    <header>
 
+      <!-- Titre de bienvenue -->
+      <h1>Bienvenue dans Mon Chat</h1>
 
+      <!-- Petit texte présentant l'application -->
+      <p>Discutez tout simplement avec vos proches dans la langue de votre choix.</p>
+
+    </header>
+
+    <!-- Section de présentation de l'application -->
     <section class="vitrine">
+
+      <!-- Logo de l'application avec une icône -->
       <div class="logo">
         <i class="fa-solid fa-comments"></i>
         <span>MonChat</span>
       </div>
 
+      <!-- Titre principal présentant le service proposé -->
       <h1>Parlez avec le monde entier, <em>dans votre langue.</em></h1>
+
+      <!-- Slogan expliquant le fonctionnement de la traduction automatique -->
       <p class="slogan">Écrivez en français, vos amis lisent dans leur langue. La traduction se fait toute seule.</p>
 
+      <!-- Aperçu d'une conversation pour montrer le fonctionnement de l'application -->
+      <!-- aria-hidden="true" permet de cacher cet aperçu aux lecteurs d'écran -->
       <div class="apercu" aria-hidden="true">
+
+        <!-- En-tête de la conversation avec les informations du contact -->
         <div class="apercu-entete">
+
+          <!-- Pastille contenant l'initiale du contact -->
           <div class="pastille">S</div>
+
+          <!-- Nom et statut de la personne -->
           <div>
             <strong>Sarah</strong>
             <small>en ligne</small>
           </div>
+
         </div>
 
+        <!-- Bulle représentant un message reçu -->
         <div class="bulle recue">
           Hi, how are you?
-          <span class="traduction"><i class="fa-solid fa-language"></i> Salut, ça va ?</span>
+
+          <!-- Affichage de la traduction du message reçu -->
+          <span class="traduction">
+            <i class="fa-solid fa-language"></i> Salut, ça va ?
+          </span>
         </div>
+
+        <!-- Bulle représentant un message envoyé -->
         <div class="bulle envoyee">
           Oui merci et toi ?
-          <span class="traduction"><i class="fa-solid fa-language"></i> Traduit en anglais</span>
+
+          <!-- Indication de la traduction du message envoyé -->
+          <span class="traduction">
+            <i class="fa-solid fa-language"></i> Traduit en anglais
+          </span>
         </div>
+
       </div>
 
+      <!-- Liste des principaux avantages de l'application -->
       <ul class="avantages">
+
+        <!-- Premier avantage : traduction automatique -->
         <li><i class="fa-solid fa-language"></i> Traduction automatique</li>
+
+        <!-- Deuxième avantage : envoi rapide des messages -->
         <li><i class="fa-solid fa-bolt"></i> Messages instantanés</li>
+
+        <!-- Troisième avantage : respect des données des utilisateurs -->
         <li><i class="fa-solid fa-lock"></i> Libre et respectueux de vos données</li>
+
       </ul>
+
     </section>
 
+    <!-- Partie principale contenant le formulaire de connexion -->
     <main class="connexion">
+
+      <!-- Carte contenant les champs et les informations de connexion -->
       <div class="carte">
+
+        <!-- Titre du formulaire de connexion -->
         <h2>Bon retour !</h2>
+
+        <!-- Texte invitant l'utilisateur à se connecter -->
         <p class="sous-titre">Connectez-vous pour retrouver vos conversations.</p>
 
+        <!-- Formulaire permettant à un utilisateur de se connecter -->
         <form id="formulaire-connexion">
 
+          <!-- Premier champ : adresse courriel -->
           <div class="champ">
+
+            <!-- Étiquette du champ courriel -->
             <label for="courriel">Courriel</label>
+
+            <!-- Conteneur regroupant l'icône et le champ de saisie -->
             <div class="saisie">
+
+              <!-- Icône représentant une enveloppe -->
               <i class="fa-solid fa-envelope"></i>
+
+              <!-- Champ permettant de saisir l'adresse courriel -->
               <input type="email" id="courriel" name="courriel" placeholder="nom@exemple.com" required>
+
             </div>
           </div>
 
+          <!-- Deuxième champ : mot de passe -->
           <div class="champ">
+
+            <!-- Étiquette du champ mot de passe -->
             <label for="mot-de-passe">Mot de passe</label>
+
+            <!-- Conteneur regroupant l'icône et le champ de saisie -->
             <div class="saisie">
+
+              <!-- Icône représentant un cadenas -->
               <i class="fa-solid fa-lock"></i>
+
+              <!-- Champ permettant de saisir le mot de passe -->
+              <!-- type="password" masque les caractères saisis -->
+              <!-- minlength="8" exige au moins 8 caractères -->
               <input type="password" id="mot-de-passe" name="mot-de-passe" placeholder="Votre mot de passe" minlength="8" required>
+
             </div>
           </div>
+
+          <!-- Zone destinée à afficher les erreurs de connexion -->
           <p id="erreur-connexion"></p>
+
+          <!-- Bouton permettant de soumettre le formulaire de connexion -->
           <button type="submit" class="bouton">
-            Se connecter <i class="fa-solid fa-arrow-right"></i>
+            Se connecter
+
+            <!-- Icône représentant une flèche -->
+            <i class="fa-solid fa-arrow-right"></i>
           </button>
+
         </form>
 
-        <p class="inscription">Pas encore de compte ? <a href="pages/inscription.html">Créer un compte</a></p>
+        <!-- Lien permettant aux nouveaux utilisateurs de créer un compte -->
+        <p class="inscription">
+          Pas encore de compte ?
+          <a href="pages/inscription.html">Créer un compte</a>
+        </p>
+
       </div>
     </main>
 
   </div>
 
+  <!-- Importation de la bibliothèque JavaScript de Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="js/supabase-client.js"></script>
-<script src="js/connexion.js"></script>
+
+  <!-- Chargement du fichier de configuration et de connexion à Supabase -->
+  <script src="js/supabase-client.js"></script>
+
+  <!-- Chargement du script qui gère la connexion des utilisateurs -->
+  <script src="js/connexion.js"></script>
+
 </body>
 
 </html>
