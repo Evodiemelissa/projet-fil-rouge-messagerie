@@ -1,187 +1,100 @@
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
+  <!-- Informations générales de la page -->
   <meta charset="UTF-8">
+
+  <!-- Adaptation de la page aux différentes tailles d'écran -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MonChat - Conversation</title>
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
+
+  <!-- Titre de la page -->
+  <title>MonChat - Contact</title>
+
+  <!-- Lien vers le fichier CSS principal -->
   <link rel="stylesheet" href="../css/base.css">
-  <link rel="stylesheet" href="../css/conversation.css">
 </head>
 
-<body class="page-conversation">
-  
-  <div class="container">
-    <!-- Colonne de gauche : liste de conversation -->
-    <aside id="liste-conversations">
-      
-      <header class="entete-liste">
-        <h1>MonChat</h1>
-        <div class="icones">
-          <button type="button" id="btn-ajouter-contact" title="Ajouter un contact">
-            <i class="fa-solid fa-user-plus"></i>
-          </button>
-          <a href="parametres.html" title="Paramètres"><i class="fa-solid fa-gear"></i></a>
-        </div>
-      </header>
-      
-      <div class="recherche">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="search" id="recherche" placeholder="Rechercher une conversation">
-      </div>
-      
-      <section>
-        <h2 class="cache">Conversations</h2>
-        <ul id="liste-contacts"></ul>
-      </section>
-      
-      <nav>
-        <a href="parametres.html"><i class="fa-solid fa-gear"></i> Paramètres</a>
-        <a href="contact.html"><i class="fa-solid fa-address-book"></i> Contact</a>
-        <a href="../index.html" class="lien-deconnexion"><i class="fa-solid fa-right-from-bracket"></i> Se déconnecter</a>
-      </nav>
-      
-    </aside>
-    
-    <!-- Colonne de droite : conversation ouverte -->
-    <main id="conversation-ouverte">
-      
-      <header class="entete-conversation">
-        <div class="avatar" id="avatar-contact">?</div>
-        <div class="infos">
-          <h2 id="nom-contact">MonChat</h2>
-          <p><small id="info-contact"></small></p>
-        </div>
-        <div class="icones">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <i class="fa-solid fa-ellipsis-vertical"></i>
-        </div>
-      </header>
-      <section id="messages"> 
-        <article class="message recu">
-          <p><strong>Sarah</strong></p>
-          <p>Salut, ca va ?</p>
-          <p><small>Traduit de l'anglais</small></p>
-          <details>
-            <summary>Voir le message original</summary>
-            <p lang="en">Hi, how are you?</p>
-          </details>
-          <p><time datetime="14:02">14:02</time></p>
-        </article>
-        
-        <article class="message envoye">
-          <p><strong>Moi</strong></p>
-          <p>Oui merci et toi ?</p>
-          <p><small>Envoye en anglais</small></p>
-          <details>
-            <summary>Voir la version envoyee</summary>
-            <p lang="en">Yes, thanks, and you?</p>
-          </details>
-          <p><time datetime="14:03">14:03</time></p>
-        </article>
-        
-        <article class="message recu">
-          <p><strong>Sarah</strong></p>
-          <p>Super ! Tu as vu le projet fil-rouge ?</p>
-          <p><small>Traduit de l'anglais</small></p>
-          <details>
-            <summary>Voir le message original</summary>
-            <p lang="en">Great! Have you seen the group project?</p>
-          </details>
-          <p><time datetime="14:04">14:04</time></p>
-        </article>
-        
-        <article class="message envoye">
-          <p><strong>Moi</strong></p>
-          <p>Oui, je travaille sur la page de conversation.</p>
-          <p><small>Envoye en anglais</small></p>
-          <details>
-            <summary>Voir la version envoyee</summary>
-            <p lang="en">Yes, I'm working on the conversation page.</p>
-          </details>
-          <p><time datetime="14:05">14:05</time></p>
-        </article>
-        
-        <article class="message recu">
-          <p><strong>Sarah</strong></p>
-          <p>Genial. Moi, je m'occupe du style CSS.</p>
-          <p><small>Traduit de l'anglais</small></p>
-          <details>
-            <summary>Voir le message original</summary>
-            <p lang="en">Awesome. I'm taking care of the CSS styling.</p>
-          </details>
-          <p><time datetime="14:06">14:06</time></p>
-        </article>
-        
-        <article class="message envoye">
-          <p><strong>Moi</strong></p>
-          <p>Parfait, on se retrouve demain pour fusionner ?</p>
-          <p><small>Envoye en anglais</small></p>
-          <details>
-            <summary>Voir la version envoyee</summary>
-            <p lang="en">Perfect, shall we meet tomorrow to merge?</p>
-          </details>
-          <p><time datetime="14:07">14:07</time></p>
-        </article>
-        
-        <article class="message recu">
-          <p><strong>Sarah</strong></p>
-          <p>D'accord, a demain !</p>
-          <p><small>Traduit de l'anglais</small></p>
-          <details>
-            <summary>Voir le message original</summary>
-            <p lang="en">Okay, see you tomorrow!</p>
-          </details>
-          <p><time datetime="14:08">14:08</time></p>
-        </article>
-        
-        <article class="message envoye">
-          <p><strong>Moi</strong></p>
-          <p>A demain !</p>
-          <p><small>Envoye en anglais</small></p>
-          <details>
-            <summary>Voir la version envoyee</summary>
-            <p lang="en">See you tomorrow!</p>
-          </details>
-          <p><time datetime="14:09">14:09</time></p>
-        </article>
-      </section>
-      
-      <footer>
-        <form id="formulaire-envoi" action="conversation.html" method="post">
-          
-          <label for="langue-envoi" class="cache">Traduire mon message en</label>
-          <select id="langue-envoi" name="langue-envoi" title="Traduire mon message en">
-            <option value="en" selected>EN Anglais</option>
-            <option value="fr">FR Français</option>
-            <option value="es">ES Espagnol</option>
-            <option value="de">DE Allemand</option>
-            <option value="it">IT Italien</option>
-          </select>
-          
-          <label for="texte" class="cache">Votre message</label>
-          <input type="text" id="texte" name="texte" placeholder="Écrivez un message" required>
-          
-          <button type="submit" aria-label="Envoyer">
-            <i class="fa-solid fa-paper-plane"></i>
-          </button>
-          
-        </form>
-      </footer>
-      
-    </main>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="../js/supabase-client.js"></script>
-  <script src="../js/conversation.js"></script>
-  <script src="../js/deconnexion.js"></script>
+<body>
+
+  <!-- En-tête de la page -->
+  <header>
+
+    <!-- Nom de l'application -->
+    <h1>MonChat</h1>
+
+    <!-- Menu de navigation -->
+    <nav>
+      <!-- Lien pour retourner à la conversation -->
+      <a href="conversation.html">Retour à la conversation</a>
+    </nav>
+
+  </header>
+
+  <!-- Contenu principal de la page -->
+  <main>
+
+    <!-- Formulaire permettant aux utilisateurs de contacter l'équipe -->
+    <form action="conversation.html" method="post">
+
+      <!-- Titre du formulaire -->
+      <h2>Nous contacter</h2>
+
+      <!-- Texte explicatif du formulaire -->
+      <p>Une question ou un problème? Ecrivez-nous.</p>
+
+      <!-- Champ pour saisir le nom -->
+      <p>
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" name="nom" required>
+      </p>
+
+      <!-- Champ pour saisir l'adresse courriel -->
+      <p>
+        <label for="courriel">Adresse courriel</label>
+        <input type="email" id="courriel" name="courriel" required>
+      </p>
+
+      <!-- Menu déroulant pour choisir le sujet du message -->
+      <p>
+        <label for="sujet">Sujet</label>
+        <select id="sujet" name="sujet" required>
+
+          <!-- Choix proposés à l'utilisateur -->
+          <option value="">-- Choisissez un sujet --</option>
+          <option value="question">Une question</option>
+          <option value="traduction">Un problème de traduction</option>
+          <option value="technique">Un problème technique</option>
+          <option value="suggestion">Une suggestion</option>
+
+        </select>
+      </p>
+
+      <!-- Zone permettant de rédiger le message -->
+      <p>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </p>
+
+      <!-- Bouton pour envoyer le formulaire -->
+      <p>
+        <button type="submit">Envoyer</button>
+      </p>
+
+    </form>
+
+  </main>
+
+  <!-- Pied de page -->
+  <footer>
+
+    <!-- Information concernant le service de traduction utilisé -->
+    <p>Messages traduits automatiquement avec LibreTranslate, un logiciel libre.</p>
+
+    <!-- Copyright et nom du projet -->
+    <p>&copy; 2026 MonChat - Projet fil-rouge</p>
+
+  </footer>
+
 </body>
-
 </html>
-
