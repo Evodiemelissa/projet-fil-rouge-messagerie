@@ -40,7 +40,7 @@ async function traduireAvecLibreTranslate(texte, langueCible) {
 
 // Traduction de secours : service MyMemory (abandon après 8 secondes)
 async function traduireAvecMyMemory(texte, langueCible) {
-  const adresse = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(texte) + "&langpair=fr|" + langueCible;
+  const adresse = "https://api.mymemory.translated.net/get?q=" + encodeURIComponent(texte) + "&langpair=Autodetect|" + langueCible;
   const reponse = await fetch(adresse, { signal: AbortSignal.timeout(8000) });
 
   if (!reponse.ok) {
