@@ -2,89 +2,152 @@
 <html lang="fr">
 
 <head>
+  <!-- Définition de l'encodage des caractères -->
   <meta charset="UTF-8">
+
+  <!-- Adaptation de la page aux différentes tailles d'écran -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Titre affiché dans l'onglet du navigateur -->
   <title>MonChat - Inscription</title>
+
+  <!-- Importation du fichier CSS pour la mise en forme de la page -->
   <link rel="stylesheet" href="../css/base.css">
 </head>
 
 <body>
 
+  <!-- En-tête de la page -->
   <header>
+    <!-- Nom de l'application -->
     <h1>MonChat</h1>
   </header>
 
+  <!-- Contenu principal de la page -->
   <main>
-  <form id="formulaire-inscription">
-    <h2>Créer un compte</h2>
 
-    <fieldset>
-      <legend>Informations personnelles</legend>
+    <!-- Formulaire permettant à un nouvel utilisateur de créer un compte -->
+    <form id="formulaire-inscription">
 
+      <!-- Titre du formulaire -->
+      <h2>Créer un compte</h2>
+
+      <!-- Regroupement des champs contenant les informations personnelles -->
+      <fieldset>
+        <!-- Titre du regroupement -->
+        <legend>Informations personnelles</legend>
+
+        <!-- Champ permettant de saisir le nom complet -->
+        <p>
+          <label for="nom">Nom complet</label>
+          <input type="text" id="nom" name="nom"
+            placeholder="Ex: Marie Dupont"
+            autocomplete="name" required>
+        </p>
+
+        <!-- Champ permettant de saisir l'adresse courriel -->
+        <p>
+          <label for="courriel">Adresse courriel</label>
+          <input type="email" id="courriel" name="courriel"
+            pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+            title="Exemple : alice@exemple.com"
+            placeholder="exemple@courriel.com"
+            autocomplete="email" required>
+        </p>
+
+        <!-- Zone destinée à afficher un message de validation du courriel -->
+        <p id="courriel-message"></p>
+
+        <!-- Champ permettant de créer un mot de passe -->
+        <p>
+          <label for="mdp">Mot de passe</label>
+          <input type="password" id="mdp" name="mdp"
+            pattern=".{8,}"
+            title="Au moins 8 caractères"
+            placeholder="Au moins 8 caractères"
+            autocomplete="new-password" required>
+        </p>
+
+        <!-- Zone destinée à afficher un message concernant le mot de passe -->
+        <p id="mdp-message"></p>
+
+        <!-- Champ permettant de confirmer le mot de passe -->
+        <p>
+          <label for="mdp-confirm">Confirmer le mot de passe</label>
+          <input type="password" id="mdp-confirm" name="mdp-confirm"
+            pattern=".{8,}"
+            title="Au moins 8 caractères"
+            placeholder="Au moins 8 caractères"
+            autocomplete="new-password" required>
+        </p>
+
+        <!-- Zone destinée à afficher un message de confirmation du mot de passe -->
+        <p id="mdp-confirm-message"></p>
+      </fieldset>
+
+      <!-- Regroupement des informations concernant la langue de l'utilisateur -->
+      <fieldset>
+        <legend>Votre langue</legend>
+
+        <p>
+          <!-- Étiquette du menu de sélection de la langue -->
+          <label for="langue">Choisissez votre langue</label>
+
+          <!-- Menu déroulant permettant de choisir une langue -->
+          <select id="langue" name="langue" required>
+
+            <!-- Option affichée par défaut -->
+            <option value="">--Sélectionnez une langue--</option>
+
+            <!-- Langues proposées à l'utilisateur -->
+            <option value="fr">Français</option>
+            <option value="en">Anglais</option>
+            <option value="es">Espagnol</option>
+            <option value="de">Allemand</option>
+            <option value="it">Italien</option>
+          </select>
+        </p>
+      </fieldset>
+
+      <!-- Case à cocher pour accepter les conditions d'utilisation -->
       <p>
-        <label for="nom">Nom complet</label>
-        <input type="text" id="nom" name="nom" placeholder="Ex: Marie Dupont" autocomplete="name" required>
+        <label>
+          <input type="checkbox" name="consentement" required>
+
+          <!-- Liens vers les conditions d'utilisation et la politique de confidentialité -->
+          J'accepte les <a href="#">conditions d'utilisation</a>
+          et la <a href="#">politique de confidentialité</a>.
+        </label>
       </p>
 
+      <!-- Zone destinée à afficher les erreurs lors de l'inscription -->
+      <p id="erreur-inscription"></p>
+
+      <!-- Bouton permettant de soumettre le formulaire d'inscription -->
       <p>
-        <label for="courriel">Adresse courriel</label>
-        <input type="email" id="courriel" name="courriel"
-          pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-          title="Exemple : alice@exemple.com" placeholder="exemple@courriel.com"
-          autocomplete="email" required>
+        <button type="submit">S'inscrire</button>
       </p>
-      <p id="courriel-message"></p>
 
-      <p>
-        <label for="mdp">Mot de passe</label>
-        <input type="password" id="mdp" name="mdp" pattern=".{8,}"
-          title="Au moins 8 caractères" placeholder="Au moins 8 caractères"
-          autocomplete="new-password" required>
-      </p>
-      <p id="mdp-message"></p>
+    </form>
 
-      <p>
-        <label for="mdp-confirm">Confirmer le mot de passe</label>
-        <input type="password" id="mdp-confirm" name="mdp-confirm" pattern=".{8,}"
-          title="Au moins 8 caractères" placeholder="Au moins 8 caractères"
-          autocomplete="new-password" required>
-      </p>
-      <p id="mdp-confirm-message"></p>
-    </fieldset>
+  </main>
 
-    <fieldset>
-      <legend>Votre langue</legend>
-      <p>
-        <label for="langue">Choisissez votre langue</label>
-        <select id="langue" name="langue" required>
-          <option value="">--Sélectionnez une langue--</option>
-          <option value="fr">Français</option>
-          <option value="en">Anglais</option>
-          <option value="es">Espagnol</option>
-          <option value="de">Allemand</option>
-          <option value="it">Italien</option>
-        </select>
-      </p>
-    </fieldset>
-
-    <p>
-      <label>
-        <input type="checkbox" name="consentement" required>
-        J'accepte les <a href="#">conditions d'utilisation</a> et la <a href="#">politique de confidentialité</a>.
-      </label>
-    </p>
-
-    <p id="erreur-inscription"></p>
-
-    <p><button type="submit">S'inscrire</button></p>
-  </form>
-
+  <!-- Menu permettant aux utilisateurs déjà inscrits de retourner à la connexion -->
   <nav>
     <p>Déjà un compte ? <a href="../index.html">Se connecter</a></p>
   </nav>
+
+  <!-- Importation de la bibliothèque JavaScript de Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script src="../js/supabase-client.js"></script>
-<script src="../js/validation-inscription.js"></script>
-<script src="../js/inscription.js"></script>
+
+  <!-- Connexion et configuration du client Supabase -->
+  <script src="../js/supabase-client.js"></script>
+
+  <!-- Script chargé de vérifier les informations saisies dans le formulaire -->
+  <script src="../js/validation-inscription.js"></script>
+
+  <!-- Script chargé de gérer le processus d'inscription -->
+  <script src="../js/inscription.js"></script>
+
 </body>
 </html>
