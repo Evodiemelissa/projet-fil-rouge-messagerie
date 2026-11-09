@@ -2,42 +2,81 @@
 <html lang="fr">
 
 <head>
+  <!-- Définition de l'encodage des caractères pour afficher correctement les accents -->
   <meta charset="UTF-8">
+
+  <!-- Adaptation de la page aux différentes tailles d'écran -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Titre affiché dans l'onglet du navigateur -->
   <title>MonChat - Mot de passe oublie</title>
+
+  <!-- Importation du fichier CSS pour la mise en forme de la page -->
   <link rel="stylesheet" href="../css/base.css">
 </head>
 
 <body>
 
+  <!-- En-tête de la page -->
   <header>
+
+    <!-- Nom de l'application -->
     <h1>MonChat </h1>
+
   </header>
 
+  <!-- Contenu principal de la page -->
   <main>
+
+    <!-- Formulaire permettant à l'utilisateur de demander la réinitialisation de son mot de passe -->
+    <!-- action indique la page de destination après l'envoi -->
+    <!-- method="post" définit la méthode d'envoi des données -->
     <form action="../index.html" method="post">
+
+      <!-- Titre du formulaire -->
       <h2>Mot de passe oublie</h2>
+
+      <!-- Instructions pour expliquer à l'utilisateur la procédure -->
       <p>Entrez votre adresse courriel pour recevoir un lien de réinitialisation.</p>
 
+      <!-- Champ permettant de saisir l'adresse courriel -->
       <p>
         <label for="courriel">Adresse courriel</label>
+
+        <!-- Champ de saisie d'une adresse électronique -->
+        <!-- type="email" vérifie le format général de l'adresse -->
+        <!-- required oblige l'utilisateur à remplir le champ -->
         <input type="email" id="courriel" name="courriel" required>
       </p>
 
+      <!-- Bouton permettant de soumettre le formulaire -->
       <p>
         <button type="submit">Envoyer le lien</button>
       </p>
+
     </form>
 
+    <!-- Navigation permettant de retourner à la page de connexion -->
     <nav>
       <a href="../index.html">Retour a la connexion</a>
     </nav>
+
   </main>
+
+  <!-- Pied de page contenant les informations complémentaires -->
   <footer>
+
+    <!-- Information concernant le logiciel utilisé pour la traduction automatique -->
     <p>Messages traduits automatiquement avec LibreTranslate, un logiciel libre.</p>
+
+    <!-- Copyright et nom du projet -->
     <p>&copy; 2026 MonChat - Projet fil-rouge</p>
+
+    <!-- Lien permettant d'accéder à la page de contact -->
     <a href="contact.html">Contact</a>
+
   </footer>
+
 </body>
 
 </html>
