@@ -1,63 +1,124 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
+  <!-- Définit l'encodage des caractères pour afficher correctement les accents -->
   <meta charset="UTF-8">
+
+  <!-- Permet d'adapter la page à la largeur de l'écran (ordinateur, tablette, téléphone) -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Définit le titre affiché dans l'onglet du navigateur -->
   <title>MonChat - Contact</title>
+
+  <!-- Importe le fichier CSS contenant les styles généraux du site -->
   <link rel="stylesheet" href="../css/base.css">
 </head>
 
 <body>
 
+  <!-- En-tête de la page contenant le nom du site et le menu de navigation -->
   <header>
+
+    <!-- Nom de l'application -->
     <h1>MonChat</h1>
+
+    <!-- Menu permettant de naviguer vers une autre page -->
     <nav>
+      <!-- Lien permettant de retourner à la page de conversation -->
       <a href="conversation.html">Retour à la conversation</a>
     </nav>
 
   </header>
 
+  <!-- Partie principale de la page -->
   <main>
+
+    <!-- Formulaire de contact -->
+    <!-- action indique la page de destination après l'envoi -->
+    <!-- method="post" indique que les données sont envoyées dans le corps de la requête -->
     <form action="conversation.html" method="post">
+
+      <!-- Titre du formulaire -->
       <h2>Nous contacter</h2>
-      
-    
-    <p>Une question ou un problème? Ecrivez-nous.</p>
 
-<p>
-      <label for="nom">Nom</label>
-      <input type="text" id="nom" name="nom" required>
-      </p>
-      <p> 
+      <!-- Petit texte qui explique l'objectif du formulaire -->
+      <p>Une question ou un problème? Ecrivez-nous.</p>
 
-      <label for="courriel">Adresse courriel</label>
-      <input type="email" id="courriel" name="courriel" required>
-      </p>
+      <!-- Premier champ : nom de l'utilisateur -->
       <p>
+        <!-- Associe le texte Nom au champ ayant l'identifiant nom -->
+        <label for="nom">Nom</label>
+
+        <!-- Champ de saisie du nom -->
+        <!-- type="text" autorise la saisie de texte -->
+        <!-- id identifie le champ -->
+        <!-- name définit le nom de la donnée envoyée -->
+        <!-- required rend le champ obligatoire -->
+        <input type="text" id="nom" name="nom" required>
+      </p>
+
+      <!-- Deuxième champ : adresse courriel -->
+      <p>
+        <!-- Étiquette du champ courriel -->
+        <label for="courriel">Adresse courriel</label>
+
+        <!-- Champ de saisie d'une adresse électronique -->
+        <!-- type="email" vérifie le format général de l'adresse -->
+        <!-- required oblige l'utilisateur à remplir ce champ -->
+        <input type="email" id="courriel" name="courriel" required>
+      </p>
+
+      <!-- Troisième champ : choix du sujet du message -->
+      <p>
+        <!-- Étiquette du menu déroulant -->
         <label for="sujet">Sujet</label>
+
+        <!-- Menu déroulant permettant de sélectionner un sujet -->
         <select id="sujet" name="sujet" required>
+
+          <!-- Option affichée par défaut, sans valeur sélectionnable -->
           <option value="">-- Choisissez un sujet --</option>
+
+          <!-- Différents sujets proposés à l'utilisateur -->
           <option value="question">Une question</option>
           <option value="traduction">Un problème de traduction</option>
           <option value="technique">Un problème technique</option>
           <option value="suggestion">Une suggestion</option>
+
         </select>
       </p>
-      <p>
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+      <!-- Quatrième champ : message de l'utilisateur -->
+      <p>
+        <!-- Étiquette de la zone de texte -->
+        <label for="message">Message</label>
+
+        <!-- Zone de texte permettant de rédiger un message -->
+        <!-- rows="5" définit une hauteur initiale de cinq lignes -->
+        <!-- required oblige l'utilisateur à écrire un message -->
+        <textarea id="message" name="message" rows="5" required></textarea>
       </p>
-      <p>
 
-      <button type="submit">Envoyer</button>
-      </p>  
+      <!-- Bouton permettant de soumettre le formulaire -->
+      <p>
+        <!-- type="submit" déclenche l'envoi du formulaire -->
+        <button type="submit">Envoyer</button>
+      </p>
+
     </form>
+
   </main>
 
+  <!-- Pied de page contenant les informations complémentaires -->
   <footer>
+
+    <!-- Information sur le logiciel utilisé pour la traduction automatique -->
     <p>Messages traduits automatiquement avec LibreTranslate, un logiciel libre.</p>
+
+    <!-- Symbole © suivi de l'année et du nom du projet -->
     <p>&copy; 2026 MonChat - Projet fil-rouge</p>
+
   </footer>
 
 </body>
