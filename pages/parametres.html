@@ -2,54 +2,98 @@
 <html lang="fr">
 
 <head>
+  <!-- Définition de l'encodage des caractères -->
   <meta charset="UTF-8">
+
+  <!-- Adaptation de la page aux différentes tailles d'écran -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Titre affiché dans l'onglet du navigateur -->
   <title>MonChat - Paramètres</title>
+
+  <!-- Importation du fichier CSS pour la mise en forme -->
   <link rel="stylesheet" href="../css/base.css">
 </head>
 
 <body>
 
+  <!-- En-tête de la page contenant le nom de l'application et les liens de navigation -->
   <header>
+
+    <!-- Nom de l'application -->
     <h1>MonChat</h1>
+
+    <!-- Menu de navigation -->
     <nav>
+
+      <!-- Lien permettant d'accéder à la page de contact -->
       <a href="contact.html">Contact</a>
-      <a href="../index.html">Se déconnecter</a>
+
+      <!-- Lien permettant de se déconnecter du compte -->
+      <a href="../index.html" class="lien-deconnexion">Se déconnecter</a>
+
+      <!-- Lien permettant de retourner à la page de conversation -->
       <a href="conversation.html">Retour à la conversation</a>
+
     </nav>
   </header>
 
+  <!-- Contenu principal de la page -->
   <main>
+
+    <!-- Titre de la page des paramètres -->
     <h2>Paramètres du compte</h2>
 
+    <!-- Formulaire permettant de modifier les paramètres du compte -->
+    <!-- action indique la page de destination après l'envoi -->
+    <!-- method="post" définit la méthode d'envoi des données -->
+    <!-- enctype permet de transmettre des fichiers, notamment une photo -->
     <form action="conversation.html" method="post" enctype="multipart/form-data">
 
+      <!-- Regroupement des informations du profil -->
       <fieldset>
 
-      <legend>Profil</legend>
+        <!-- Titre de la première section -->
+        <legend>Profil</legend>
 
-      <p>
-        <label for="photo">Photo de profil</label>
-        <input type="file" id="photo" name="photo" accept="image/*">
-      </p>
+        <!-- Champ permettant de choisir une photo de profil -->
+        <p>
+          <label for="photo">Photo de profil</label>
 
-      <p>
-        <label for="nom">Nom affiché</label>
-        <input type="text" id="nom" name="nom">
-      </p>
+          <!-- type="file" permet de sélectionner un fichier sur l'ordinateur -->
+          <!-- accept="image/*" limite la sélection aux fichiers image -->
+          <input type="file" id="photo" name="photo" accept="image/*">
+        </p>
 
-      <p>
-        <label for="courriel">Adresse courriel</label>
-        <input type="email" id="courriel" name="courriel">
-      </p>
+        <!-- Champ permettant de modifier le nom affiché sur le compte -->
+        <p>
+          <label for="nom">Nom affiché</label>
+          <input type="text" id="nom" name="nom">
+        </p>
+
+        <!-- Champ permettant de modifier l'adresse courriel -->
+        <p>
+          <label for="courriel">Adresse courriel</label>
+          <input type="email" id="courriel" name="courriel">
+        </p>
+
       </fieldset>
+
+      <!-- Regroupement des paramètres concernant la traduction -->
       <fieldset>
+
+        <!-- Titre de la deuxième section -->
         <legend>Traduction</legend>
 
+        <!-- Sélection de la langue dans laquelle les messages seront affichés -->
         <p>
-
           <label for="langue">Langue dans laquelle je lis mes messages</label>
+
+          <!-- Menu déroulant permettant de choisir une langue -->
           <select id="langue" name="langue">
+
+            <!-- Langues disponibles -->
+            <!-- selected indique que le français est sélectionné par défaut -->
             <option value="fr" selected>Français</option>
             <option value="en">Anglais</option>
             <option value="es">Espagnol</option>
@@ -59,47 +103,81 @@
           </select>
         </p>
 
+        <!-- Option permettant d'activer ou de désactiver la traduction automatique -->
         <p>
           <label>
+            <!-- checked signifie que la case est cochée par défaut -->
             <input type="checkbox" name="traduction-auto" checked>
             Traduire automatiquement les messages reçus
           </label>
         </p>
 
+        <!-- Option permettant d'afficher la version originale des messages -->
         <p>
           <label>
+            <!-- Case cochée par défaut -->
             <input type="checkbox" name="afficher-version-originale" checked>
             Afficher la version originale par défaut
           </label>
         </p>
+
       </fieldset>
+
+      <!-- Regroupement des paramètres de notification -->
       <fieldset>
+
+        <!-- Titre de la troisième section -->
         <legend>Notifications</legend>
 
+        <!-- Option permettant d'activer ou de désactiver les notifications -->
         <p>
           <label>
+            <!-- Les notifications sont activées par défaut -->
             <input type="checkbox" name="notifications" checked>
             Recevoir des notifications pour les nouveaux messages
           </label>
         </p>
+
       </fieldset>
 
+      <!-- Bouton permettant d'enregistrer les modifications -->
       <p>
         <button type="submit">Enregistrer</button>
       </p>
+
     </form>
 
+    <!-- Navigation permettant de se déconnecter du compte -->
     <nav>
-      <p><a href="../index.html">Se déconnecter</a></p>
+      <p>
+        <a href="../index.html" class="lien-deconnexion">Se déconnecter</a>
+      </p>
     </nav>
 
   </main>
 
+  <!-- Pied de page contenant les informations complémentaires -->
   <footer>
+
+    <!-- Information concernant le logiciel utilisé pour la traduction automatique -->
     <p>Messages traduits automatiquement avec LibreTranslate, un logiciel libre.</p>
+
+    <!-- Copyright et nom du projet -->
     <p>&copy; 2026 MonChat - Projet fil-rouge</p>
+
+    <!-- Lien vers la page de contact -->
     <a href="contact.html">Contact</a>
+
   </footer>
+
+  <!-- Importation de la bibliothèque JavaScript de Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Chargement du fichier de configuration et de connexion à Supabase -->
+  <script src="../js/supabase-client.js"></script>
+
+  <!-- Chargement du script qui gère la déconnexion de l'utilisateur -->
+  <script src="../js/deconnexion.js"></script>
 
 </body>
 
